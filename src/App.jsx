@@ -1,12 +1,14 @@
-
 import './App.css'
+import WithSubnavigation from './Components/navbar'
 
 function App() {
 
-
   return (
     <div className="App">
-     <h1>Ecommerce Project</h1>
+    
+     <WithSubnavigation/>
+   
+     <h1>lore</h1>
     </div>
   )
 }
