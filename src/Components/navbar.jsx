@@ -1,10 +1,16 @@
 import { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
+// import { Text } from '@chakra-ui/react'
+
+import { BsSearch } from 'react-icons/bs'
+import {RiUserLine} from "react-icons/ri"
+
+import {BsBasket3} from "react-icons/bs"
 import {
   Box,
   Flex,
   Avatar,
   HStack,
-  Link,
   IconButton,
   Button,
   Menu,
@@ -15,10 +21,12 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+ Text,
+ Spacer,
+ Icon
+ 
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-
-const Links = ['Dashboard', 'Projects', 'Team'];
+import { HamburgerIcon, CloseIcon,ChevronDownIcon,Search2Icon,ArrowForwardIcon } from '@chakra-ui/icons';
 
 const NavLink = ({children, children: ReactNode }) => (
   <Link
@@ -39,7 +47,7 @@ export default function Simple() {
 
   return (
     <>
-      <Box bg={useColorModeValue('white', 'white')} px={4}>
+      <Box bg={useColorModeValue('whitesmoke', 'whitesmoke')} px={6} >
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
@@ -48,18 +56,39 @@ export default function Simple() {
             display={{ md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
           />
-          <HStack spacing={8} alignItems={'center'}>
-            <Box>
-                <img src='https://cdn.shopify.com/s/files/1/0258/2485/4100/files/flatheads-logo-new-hotizontal_180x_2x_bf74c8db-79f1-4904-b343-3b0e2681ec07_192x32.png?v=1647508945'/>
+          <HStack spacing={40} alignItems={'center'}>
+            <Box marginLeft={130}>
+               <img src='https://cdn.shopify.com/s/files/1/0258/2485/4100/files/flatheads-logo-new-hotizontal_180x_2x_bf74c8db-79f1-4904-b343-3b0e2681ec07_192x32.png?v=1647508945'/>
             </Box>
             <HStack
               as={'nav'}
-              spacing={4}
-              display={{ base: 'none', md: 'flex' }}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+              spacing={6}
+              display={{ base: 'none', md: 'flex'  }}>
+            
+              <Link to="/shop">   <Text fontSize='lg' fontWeight={850}>Shop </Text></Link>
+              <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>WOMEN <ChevronDownIcon></ChevronDownIcon></Text></Link>
+              <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>MEN <ChevronDownIcon></ChevronDownIcon></Text></Link>
+              <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>NEWS! <ChevronDownIcon></ChevronDownIcon></Text></Link>
+              <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>CLASSICS <ChevronDownIcon></ChevronDownIcon></Text></Link>
+              <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>ABOUT <ChevronDownIcon></ChevronDownIcon></Text></Link>
+              <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>HELP <ChevronDownIcon></ChevronDownIcon></Text></Link>
+              
+
+              <Spacer/>
+
+            <Flex> 
+              
+               <Icon as={BsSearch} boxSize="25px" mx={4}/>
+               <Icon as={RiUserLine} boxSize="25px" mx={4}/>
+               <Icon as={BsBasket3} boxSize="25px" mx={2}/>
+
+                <Text backgroundColor={"#FFABE1"} borderRadius="35%" fontSize="2xl" fontWeight={700}>0</Text>
+           
+           </Flex>
+            
             </HStack>
+            {/* <Search2Icon size="2xl"></Search2Icon> */}
+           
           </HStack>
           <Flex alignItems={'center'}>
             <Menu>
@@ -89,10 +118,20 @@ export default function Simple() {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
-            </Stack>
+
+            <Link to="/shop">   <Text fontSize='2xl' fontWeight={600}>Shop </Text></Link>
+              <Link to="/shop">   <Text fontSize='2xl' fontWeight={600}>WOMEN <ArrowForwardIcon></ArrowForwardIcon></Text></Link>
+              <Link to="/shop">   <Text fontSize='2xl' fontWeight={600}>MEN <ArrowForwardIcon></ArrowForwardIcon></Text></Link>
+              <Link to="/shop">   <Text fontSize='2xl' fontWeight={600}>NEWS! <ArrowForwardIcon></ArrowForwardIcon></Text></Link>
+              <Link to="/shop">   <Text fontSize='2xl' fontWeight={600}>CLASSICS <ArrowForwardIcon></ArrowForwardIcon></Text></Link>
+              <Link to="/shop">   <Text fontSize='2xl' fontWeight={600}>ABOUT <ArrowForwardIcon></ArrowForwardIcon></Text></Link>
+              <Link to="/shop">   <Text fontSize='2xl' fontWeight={600}>HELP <ArrowForwardIcon></ArrowForwardIcon></Text></Link>
+               
+            
+ 
+
+
+                        </Stack>
           </Box>
         ) : null}
       </Box>

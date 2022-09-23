@@ -1,14 +1,18 @@
+
 import './App.css'
-import WithSubnavigation from './Components/navbar'
+import { AllRoutes } from './Components/allRoutes'
+//  import WithSubnavigation from './Components/navbar'
+
 
 function App() {
 
   return (
     <div className="App">
-    
-     <WithSubnavigation/>
+    <AllRoutes/>
+  
    
-     <h1>lore</h1>
+    
+   
     </div>
   )
 }
