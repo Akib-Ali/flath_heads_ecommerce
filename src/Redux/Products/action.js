@@ -14,7 +14,20 @@ const storeData=(payload)=>({
 })
 
 
+// add thunk
+
+const getData = () => (dispatch) => {
+
+        dispatch(handeLoading())
+        fetch("https://doctor-patient123.herokuapp.com/products")
+        .then((res)=> res.json())
+        .then((res)=> dispatch(storeData(res)))                                          //pehle console.log(res)
+        .catch(()=> dispatch(handleError()))
+
+}
 
 
 
-export {handeLoading,handleError,storeData}
+
+
+export {storeData,handeLoading,handleError, getData}

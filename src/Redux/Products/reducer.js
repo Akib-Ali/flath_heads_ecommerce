@@ -4,7 +4,6 @@ const initState = {
     products: []
 }
 
-
 const productReducer = (state = initState, action) => {
 
     switch (action.type) {
@@ -20,10 +19,7 @@ const productReducer = (state = initState, action) => {
 
             default:
                 return state;
-
-
-
-    }
+ }
 
 }
 

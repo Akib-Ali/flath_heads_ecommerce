@@ -1,8 +1,8 @@
-// import {create_legacyStore} from "redux"
-import { legacy_createStore } from "redux";
+import { legacy_createStore , applyMiddleware } from "redux";
+import thunk from 'redux-thunk'
 
 import { productReducer } from "./Products/reducer";
 
-const store = legacy_createStore(productReducer)
+const store = legacy_createStore(productReducer,applyMiddleware(thunk))
 
 export {store} 
