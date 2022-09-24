@@ -49,7 +49,7 @@ export default function Simple() {
               spacing={6}
               display={{ base: 'none', md: 'flex' }}>
 
-              <Link to="/shop">   <Text fontSize='lg' fontWeight={850}>Shop </Text></Link>
+              <Link to="/collections/all">   <Text fontSize='lg' fontWeight={850}>Shop </Text></Link>
               <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>WOMEN <ChevronDownIcon></ChevronDownIcon></Text></Link>
               <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>MEN <ChevronDownIcon></ChevronDownIcon></Text></Link>
               <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>NEWS! <ChevronDownIcon></ChevronDownIcon></Text></Link>
@@ -103,7 +103,7 @@ export default function Simple() {
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
 
-              <Link to="/shop">   <Text fontSize='2xl' fontWeight={600}>Shop </Text></Link>
+              <Link to="/collections/all">   <Text fontSize='2xl' fontWeight={600}>Shop </Text></Link>
               <Link to="/shop">   <Text fontSize='2xl' fontWeight={600}>WOMEN <ArrowForwardIcon></ArrowForwardIcon></Text></Link>
               <Link to="/shop">   <Text fontSize='2xl' fontWeight={600}>MEN <ArrowForwardIcon></ArrowForwardIcon></Text></Link>
               <Link to="/shop">   <Text fontSize='2xl' fontWeight={600}>NEWS! <ArrowForwardIcon></ArrowForwardIcon></Text></Link>
