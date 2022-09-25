@@ -5,6 +5,7 @@ import {handeLoading,handleError,storeData, getData} from "../Redux/Products/act
  import { Text } from "@chakra-ui/react"
 import { Filter } from "../Components/Filter"
 import { ProductComponent } from "../Components/product"
+import { Grid, GridItem } from '@chakra-ui/react'
 
 
 export const Shop=()=>{
@@ -34,11 +35,13 @@ export const Shop=()=>{
             <h1>Entities loading.....</h1>
             :error ?
             <h1>some thing wrong .please try again later</h1>
-            :<div>
-                {products.length > 0 && products.map((item)=>{
+            :<Grid templateColumns='repeat(3, 1fr)' gap={6}>
+            {products.length > 0 && products.map((item)=>{
                     return <ProductComponent key={item.id} {...item}/>
                 })}
-             </div>
+ 
+  
+           </Grid>
             }
         </div>
     )
