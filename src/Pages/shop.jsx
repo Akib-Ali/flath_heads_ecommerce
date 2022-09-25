@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import {handeLoading,handleError,storeData, getData} from "../Redux/Products/action"
+import {getData} from "../Redux/Products/action"
  import {useDispatch} from "react-redux"                   //data ko redux m send k liye
  import {useSelector} from "react-redux"
  import { Text } from "@chakra-ui/react"
