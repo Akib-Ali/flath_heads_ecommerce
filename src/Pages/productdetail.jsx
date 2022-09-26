@@ -52,7 +52,7 @@ export const ProductDetail=()=>{
     
     return(
     
- <Grid templateColumns='repeat(2, 1fr)' gap={6} width="1350px" margin="auto" mt="70px" border="2px solid blue" height="500px">
+ <Grid templateColumns='repeat(2, 1fr)' gap={6} width="1250px" margin="auto" mt="70px" border="2px solid blue" height="500px">
 
     
   <ProductDetailComponent productdetail={currentproduct}/>
