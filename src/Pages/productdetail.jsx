@@ -8,6 +8,7 @@ import { ProductComponent } from "../Components/product"
 import { Grid, GridItem } from '@chakra-ui/react'
 import { useParams } from "react-router-dom"
 import { ProductDetailComponent } from "../Components/productdetailcomponent"
+import { Box} from '@chakra-ui/react'
 
 
 export const ProductDetail=()=>{
@@ -46,11 +47,17 @@ export const ProductDetail=()=>{
    
     
     console.log(currentproduct)
+       
+
     
     return(
-        <div>
-        {`Product Detail Page ${id}`}
-        <ProductDetailComponent productdetail={currentproduct}/>
-        </div>
-    )
+    
+ <Grid templateColumns='repeat(2, 1fr)' gap={6} width="1350px" margin="auto" mt="70px" border="2px solid blue" height="500px">
+
+    
+  <ProductDetailComponent productdetail={currentproduct}/>
+  
+
+</Grid>
+     )
 }
