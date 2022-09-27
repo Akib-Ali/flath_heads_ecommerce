@@ -1,15 +1,28 @@
+import React from 'react';
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom'
 import { BsSearch } from 'react-icons/bs'
 import { RiUserLine } from "react-icons/ri"
 import { BsBasket3 } from "react-icons/bs"
 
-import {Box,Flex,Avatar,HStack,IconButton,Button,Menu, MenuButton,MenuList,MenuItem,MenuDivider,useDisclosure,useColorModeValue,
-  Stack,Text,Spacer,Icon
+
+import {
+  Box, Flex, Avatar, HStack, IconButton, Button, Menu, MenuButton, MenuList, MenuItem, MenuDivider, useDisclosure, useColorModeValue,
+  Stack, Text, Spacer, Icon, Input
 } from '@chakra-ui/react';
 
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, Search2Icon, ArrowForwardIcon } from '@chakra-ui/icons';
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux'
+
+import {
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+} from '@chakra-ui/react'
 
 const NavLink = ({ children, children: ReactNode }) => (
   <Link
@@ -27,8 +40,13 @@ const NavLink = ({ children, children: ReactNode }) => (
 
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef()
 
-  const cart = useSelector((state)=> state.cart.cart)
+  const cart = useSelector((state) => state.cart.cart)
+
+
+
+
   console.log(cart)
 
   return (
@@ -44,8 +62,8 @@ export default function Simple() {
           />
           <HStack spacing={40} alignItems={'center'}>
             <Box marginLeft={130}>
-            <Link to="/">
-              <img src='https://cdn.shopify.com/s/files/1/0258/2485/4100/files/flatheads-logo-new-hotizontal_180x_2x_bf74c8db-79f1-4904-b343-3b0e2681ec07_192x32.png?v=1647508945' />
+              <Link to="/">
+                <img src='https://cdn.shopify.com/s/files/1/0258/2485/4100/files/flatheads-logo-new-hotizontal_180x_2x_bf74c8db-79f1-4904-b343-3b0e2681ec07_192x32.png?v=1647508945' />
               </Link>
             </Box>
             <HStack
@@ -68,16 +86,18 @@ export default function Simple() {
 
                 <Icon as={BsSearch} boxSize="25px" mx={4} />
                 <Icon as={RiUserLine} boxSize="25px" mx={4} />
-                <Icon as={BsBasket3} boxSize="25px" mx={2} />
+                <Flex onClick={onOpen} ref={btnRef} align="center">
+                  <Icon as={BsBasket3} boxSize="25px" mx={2} />
 
-                <Text backgroundColor={"#FFABE1"} borderRadius="35%" fontSize="2xl" fontWeight={700}>
-                {cart ? cart.length : 0}
-                </Text>
+                  <Text backgroundColor={"#FFABE1"} borderRadius="35%" fontSize="2xl" fontWeight={700}>
+                    {cart ? cart.length : 0}
+                  </Text>
+                </Flex>
 
               </Flex>
 
             </HStack>
-            {/* <Search2Icon size="2xl"></Search2Icon> */}
+
 
           </HStack>
           <Flex alignItems={'center'}>
@@ -103,7 +123,40 @@ export default function Simple() {
               </MenuList>
             </Menu>
           </Flex>
+
         </Flex>
+
+
+        {/* cart drawer here */}
+        <Drawer
+          isOpen={isOpen}
+          size="sm"
+          placement='right'
+          onClose={onClose}
+          finalFocusRef={btnRef}
+        >
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerHeader>TOTAL CART ITEM ({cart.length})</DrawerHeader>
+
+            <DrawerBody>
+              
+            </DrawerBody>
+
+            <DrawerFooter>
+              <Button variant='outline' mr={3} onClick={onClose}>
+                Cancel
+              </Button>
+              <Button colorScheme='blue'>Save</Button>
+            </DrawerFooter>
+          </DrawerContent>
+        </Drawer>
+
+
+
+
+        {/* end cart drawer */}
 
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
