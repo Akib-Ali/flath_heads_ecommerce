@@ -14,9 +14,9 @@ import { Box} from '@chakra-ui/react'
 export const ProductDetail=()=>{
 
     const dispatch = useDispatch()
-   const currentproduct = useSelector((state)=> state. currentProduct)
-   const loading = useSelector((state)=> state.loading)
-   const error = useSelector((state)=>state.error)
+   const currentproduct = useSelector((state)=> state.product.currentProduct)
+   const loading = useSelector((state)=> state.product.loading)
+   const error = useSelector((state)=>state.product.error)
    console.log(currentproduct)
 
 

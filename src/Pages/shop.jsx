@@ -11,9 +11,9 @@ import { Grid, GridItem } from '@chakra-ui/react'
 export const Shop=()=>{
 
     const dispatch = useDispatch()
-   const products = useSelector((state)=> state.products)
-   const loading = useSelector((state)=> state.loading)
-   const error = useSelector((state)=>state.error)
+   const products = useSelector((state)=> state.product.products)
+   const loading = useSelector((state)=> state.product.loading)
+   const error = useSelector((state)=>state.product.error)
    console.log(products)
 
 

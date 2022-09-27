@@ -9,6 +9,7 @@ import {Box,Flex,Avatar,HStack,IconButton,Button,Menu, MenuButton,MenuList,MenuI
 } from '@chakra-ui/react';
 
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, Search2Icon, ArrowForwardIcon } from '@chakra-ui/icons';
+import { useSelector } from 'react-redux';
 
 const NavLink = ({ children, children: ReactNode }) => (
   <Link
@@ -26,6 +27,8 @@ const NavLink = ({ children, children: ReactNode }) => (
 
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const cart = useSelector((state)=> state.cart.cart)
 
   return (
     <>
@@ -66,7 +69,9 @@ export default function Simple() {
                 <Icon as={RiUserLine} boxSize="25px" mx={4} />
                 <Icon as={BsBasket3} boxSize="25px" mx={2} />
 
-                <Text backgroundColor={"#FFABE1"} borderRadius="35%" fontSize="2xl" fontWeight={700}>0</Text>
+                <Text backgroundColor={"#FFABE1"} borderRadius="35%" fontSize="2xl" fontWeight={700}>
+                {cart ? cart.length : 0}
+                </Text>
 
               </Flex>
 

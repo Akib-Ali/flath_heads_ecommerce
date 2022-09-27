@@ -6,13 +6,15 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { ToastExample } from './productdetailtoast';
 import { useState } from 'react';
+import { addTOCart } from '../Redux/Cart/action';
+import {useDispatch} from "react-redux" 
 
 
 
 
 export const ProductDetailComponent=({productdetail})=>{
 
-
+  const dispatch = useDispatch()
     
     const {id,color,final_price,gender,images,name,original_price,rating,reviews,sizes} = productdetail;
 
@@ -25,7 +27,17 @@ export const ProductDetailComponent=({productdetail})=>{
         slidesToScroll: 1
       };
 
-    //  f2f7f4
+    
+
+
+    const handleCart=()=>{
+      let payload ={
+        ...productdetail,
+        size
+      }
+      // console.log(payload)
+      dispatch(addTOCart(payload))
+    }
 
     return(
        
@@ -65,7 +77,10 @@ export const ProductDetailComponent=({productdetail})=>{
     </Flex>
 
     <Box mt="20px">
-    <Button colorScheme='yellow' width="600px" disabled={!size}>{!size ? "Please seleact a size" : "ADD TO CART"}</Button>
+
+    <Button colorScheme='yellow' width="600px" disabled={!size} onClick={handleCart}>
+    {!size ? "Please seleact a size" : "ADD TO CART"}
+    </Button>
 
     </Box>
 
