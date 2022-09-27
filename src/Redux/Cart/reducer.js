@@ -5,13 +5,46 @@ const initState={
 
 }
 
+// let's check in the cart if the same product is present
+//if present we will increase quantity
+// else - we will add to product to cart
+
 const cartReducer=(state= initState,action)=>{
 
     const {type,payload}= action
 
-    switch(type){
+     switch(type){
         case ADD_TO_CART:
-            return {...state,cart: [...state.cart,payload]}
+        
+            //  return {...state,cart: [...state.cart,payload]}
+            const ispresent = state.cart.find((prod)=>{
+                return prod.id === payload.id && prod.size === payload.size
+            })
+
+
+            let newCart
+            // if present we will increase quantity 
+            if(ispresent){
+                newCart = state.cart.map((prod)=>{
+                    if(prod.id === payload.id && prod.size === payload.size){
+                        return {...prod,qty: prod.qty+1}
+
+                    }else{
+                        return prod
+                    }
+                })
+
+            }
+
+            else{
+                let newPayload ={
+                    ...payload,
+                    qty:1
+                }
+                newCart = [...state.cart, newPayload]
+            }
+            return {...state,cart:newCart}
+
 
             default:
                 return state;

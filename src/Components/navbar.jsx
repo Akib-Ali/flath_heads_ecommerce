@@ -29,6 +29,7 @@ export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const cart = useSelector((state)=> state.cart.cart)
+  console.log(cart)
 
   return (
     <>
