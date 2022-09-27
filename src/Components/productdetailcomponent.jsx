@@ -5,14 +5,18 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { ToastExample } from './productdetailtoast';
+import { useState } from 'react';
 
 
 
 
 export const ProductDetailComponent=({productdetail})=>{
 
+
     
     const {id,color,final_price,gender,images,name,original_price,rating,reviews,sizes} = productdetail;
+
+    const [size,setsize]= useState(null)
     const settings = {
         dots: true,
          infinite: true,
@@ -57,11 +61,11 @@ export const ProductDetailComponent=({productdetail})=>{
     <Text fontSize="xl" fontWeight={700} color="grey">Choose a Size</Text>
 
     <Flex gap={"20px"} mt="10px">
-        {sizes.map((size)=> <Button key={size} colorScheme='teal' variant='outline'>{size}</Button>)}
+        {sizes.map((size)=> <Button key={size} colorScheme='teal' variant='outline' onClick={() => setsize(size)}>{size}</Button>)}
     </Flex>
 
     <Box mt="20px">
-    <Button colorScheme='yellow' width="600px">ADD TO CART</Button>
+    <Button colorScheme='yellow' width="600px" disabled={!size}>{!size ? "Please seleact a size" : "ADD TO CART"}</Button>
 
     </Box>
 
