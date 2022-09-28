@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom'
 import { BsSearch } from 'react-icons/bs'
 import { RiUserLine } from "react-icons/ri"
 import { BsBasket3 } from "react-icons/bs"
-
-
+import {  AddIcon,MinusIcon} from '@chakra-ui/icons'
 import {
   Box, Flex, Avatar, HStack, IconButton, Button, Menu, MenuButton, MenuList, MenuItem, MenuDivider, useDisclosure, useColorModeValue,
-  Stack, Text, Spacer, Icon, Input
+  Stack, Text, Spacer, Icon, Input,Image
 } from '@chakra-ui/react';
 
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, Search2Icon, ArrowForwardIcon } from '@chakra-ui/icons';
-import { useSelector } from 'react-redux'
+import { useSelector , useDispatch } from 'react-redux'
+import { increaseQty,decreaseQty, removeFromCart } from '../Redux/Cart/action';
 
 import {
   Drawer,
@@ -44,11 +44,39 @@ export default function Simple() {
 
   const cart = useSelector((state) => state.cart.cart)
 
+   console.log(cart)
 
+   const dispatch = useDispatch()
 
+   const handleIncrease=(id,size)=>{
+    dispatch(increaseQty({id,size}))
 
-  console.log(cart)
+  
+   }
 
+   const handleDecrease=(id,size,qty)=>{
+    if(qty > 1){
+      dispatch(decreaseQty({id,size,qty}))
+    }else{
+      dispatch(removeFromCart({id,size,qty}))
+    }
+
+   }
+
+    let convertToNumber=(str)=>{
+      if(Number(str)){
+        return Number(str)
+      }
+      let arr = str.includes(",") ? str.split(",") : []
+      let final_str = arr.reduce((a,c)=> a+c, "")
+      let result = Number(final_str)
+      return result
+    }
+
+   let total_final_price = 0;
+   cart.forEach((prod)=>{
+    total_final_price+= convertToNumber(prod.final_price) * prod.qty;
+   })
   return (
     <>
       <Box bg={useColorModeValue('whitesmoke', 'whitesmoke')} px={6} >
@@ -130,7 +158,7 @@ export default function Simple() {
         {/* cart drawer here */}
         <Drawer
           isOpen={isOpen}
-          size="sm"
+          size="md"
           placement='right'
           onClose={onClose}
           finalFocusRef={btnRef}
@@ -141,15 +169,65 @@ export default function Simple() {
             <DrawerHeader>TOTAL CART ITEM ({cart.length})</DrawerHeader>
 
             <DrawerBody>
-              
+              {cart.length > 0 && cart.map((item)=>{
+                return( 
+                  <>
+                  <Flex gap="5px">
+                <Image
+                 boxSize='100px'
+                 objectFit='cover'
+                 src={item.images[0]}
+                 alt='Dan Abramov'
+                />
+
+                <Box>
+                  <Text>{`${item.name} | ${item.color}`}</Text>
+                  <Text>{item.gender}</Text>
+                  <Flex gap={6}>
+                   <Text>{`size : ${item.size}`}</Text>
+                   <Text>{`quantity : ${item.qty}`}</Text>
+                  </Flex>
+                  
+                </Box>
+              <Spacer></Spacer>
+                <Text>{`Rs ${item.final_price}`}</Text>
+                  
+                </Flex>
+
+                <Flex   borderRadius="20px" width="155px" gap="25px" align="center" margin="auto" mb="15px" mt="10px">
+                  
+                <Button  colorScheme='teal' variant='outline' borderRadius="15px" 
+                disabled={item.qty === 0} 
+                onClick={()=> handleDecrease(item.id,item.size,item.qty)}>
+                <MinusIcon></MinusIcon>
+                </Button>
+
+                <Text>{item.qty}</Text>
+                    
+                <Button  colorScheme='teal' variant='outline' borderRadius="15px"
+                onClick={()=> handleIncrease(item.id, item.size)}> 
+                <AddIcon></AddIcon>
+                </Button>
+                  
+                </Flex>
+                </>
+                )
+              })}
             </DrawerBody>
 
+             <Box   ml="70%">
+              <Text fontSize='xl' fontWeight="800">Subtotal</Text>
+              <Text fontSize='2xl' fontWeight="400">{`Rs ${total_final_price}.00`}</Text>
+              
+             </Box>
             <DrawerFooter>
-              <Button variant='outline' mr={3} onClick={onClose}>
-                Cancel
-              </Button>
-              <Button colorScheme='blue'>Save</Button>
+            <Button size='lg' height='48px' width='400px' border='2px' borderColor='green.500' backgroundColor="black" color="white"> Check out</Button>  
             </DrawerFooter>
+
+            <DrawerFooter>
+             <Button size='lg' height='48px' width='400px' border='2px' borderColor='green.500'> View cart</Button>
+            </DrawerFooter>
+
           </DrawerContent>
         </Drawer>
 
