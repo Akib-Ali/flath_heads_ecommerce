@@ -56,6 +56,11 @@ export default function Simple() {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef()
+
+  const {isOpend ,onOpend,onClosed} = useDisclosure()
+  const btnRefed = React.useRef()
+
+  
   
   const cart = useSelector((state) => state.cart.cart)
    console.log(cart)
@@ -101,14 +106,14 @@ export default function Simple() {
   <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
   <IconButton
   size={'md'}
-  icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+  icon={isOpend ? <CloseIcon /> : <HamburgerIcon />}
   aria-label={'Open Menu'}
   display={{ md: 'none' }}
   onClick={isOpen ? onClose : onOpen}
   />
 
   <HStack spacing={60} alignItems={'center'}>
-  <Box marginLeft="80px" display='flex' alignItems="center">
+  <Box marginLeft="50px" display='flex' alignItems="center">
   <Link to="/">
   <img src='https://cdn.shopify.com/s/files/1/0258/2485/4100/files/flatheads-logo-new-hotizontal_180x_2x_bf74c8db-79f1-4904-b343-3b0e2681ec07_192x32.png?v=1647508945' width="160px" height="100px"/> 
   </Link>
@@ -122,7 +127,7 @@ export default function Simple() {
     <Link to="/collections/all">   <Text fontSize='lg' fontWeight={850}>Shop </Text></Link>
     <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>WOMEN <ChevronDownIcon></ChevronDownIcon></Text></Link>
     <Link to="/mensshoes">   <Text fontSize='lg' fontWeight={700}>MEN <ChevronDownIcon></ChevronDownIcon></Text></Link>
-    <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>NEWS! <ChevronDownIcon></ChevronDownIcon></Text></Link>
+  
     <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>CLASSICS <ChevronDownIcon></ChevronDownIcon></Text></Link>
     <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>ABOUT <ChevronDownIcon></ChevronDownIcon></Text></Link>
     <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>HELP <ChevronDownIcon></ChevronDownIcon></Text></Link>
@@ -138,10 +143,10 @@ export default function Simple() {
    </HStack>
            
            
-    <Flex alignItems={'center'} border="2px solid blue" marginLeft="10px" width="180px">
+    <Flex alignItems={'center'} marginLeft="0px" width="160px">
     <Menu>
 
-    <Flex onClick={onOpen} ref={btnRef} align="center">
+    <Flex  align="center"  onClick={onOpen} ref={btnRef}>
      <Icon as={BsBasket3} boxSize="25px" mx={4} />
      <Text backgroundColor={"#FFABE1"} borderRadius="35%" fontSize="2xl" fontWeight={700}>
       {cart ? cart.length : 0}
@@ -174,10 +179,10 @@ export default function Simple() {
 
 
         {/* cart drawer here */}
-        <Drawer
+           <Drawer
         isOpen={isOpen}
-        size="md"
-        placement='right'
+        size="sm"
+        placement='bottom'
         onClose={onClose}
         finalFocusRef={btnRef}
         >
@@ -248,9 +253,9 @@ export default function Simple() {
 
           </DrawerContent>
         </Drawer>
+ 
 
-
-
+  
 
         {/* end cart drawer */}
       
@@ -261,9 +266,10 @@ export default function Simple() {
           
          <Stack as={'nav'} spacing={4}>
 
-         <Link to="/collections/all">   <Text fontSize='2xl' fontWeight={600}>Shop </Text></Link>
+        
         <Link to="/shop">   <Text fontSize='2xl' fontWeight={600}>WOMEN <ArrowForwardIcon></ArrowForwardIcon></Text></Link>
         <Link to="/shop">   <Text fontSize='2xl' fontWeight={600}>MEN <ArrowForwardIcon></ArrowForwardIcon></Text></Link>
+        <Link to="/collections/all">   <Text fontSize='2xl' fontWeight={600}>Shop </Text></Link>
         <Link to="/shop">   <Text fontSize='2xl' fontWeight={600}>NEWS! <ArrowForwardIcon></ArrowForwardIcon></Text></Link>
         <Link to="/shop">   <Text fontSize='2xl' fontWeight={600}>CLASSICS <ArrowForwardIcon></ArrowForwardIcon></Text></Link>
         <Link to="/shop">   <Text fontSize='2xl' fontWeight={600}>ABOUT <ArrowForwardIcon></ArrowForwardIcon></Text></Link>

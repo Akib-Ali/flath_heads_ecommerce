@@ -32,7 +32,7 @@ export const Filter=()=>{
     //   },[setGender,setSearchParams])
   
     return (
-        <Box border="2px solid green" width="400px" ml="150px">
+        <Box border="2px solid green" height="300px" width="300px">
         <Box>
         <Text>Filter Component</Text>
           <Text>Gender</Text>

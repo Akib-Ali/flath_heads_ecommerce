@@ -2,7 +2,7 @@ import { Box ,Image,Text,Flex} from '@chakra-ui/react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import {Rating} from "@chakra-ui/raect"
-
+import { SimpleGrid } from '@chakra-ui/react'
 
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 // import "./product.css"
@@ -26,8 +26,9 @@ export const ProductComponent=(item)=>{
       
 
     return(
-        <Box  p={3}  color='white' onMouseEnter={mouseenterimage} onMouseLeave={mouseremoveimage}
-         border="2px solid red"
+      
+        <Box  height="400px" width="99%"  color='white' onMouseEnter={mouseenterimage} onMouseLeave={mouseremoveimage}
+         border="2px solid purple"
          onClick={()=> navigate(`/collections/all/${id}`)}
         >
         <Image  boxSize='200px' src={img}  alt={`Shoes ${name}`}/>
@@ -42,6 +43,7 @@ export const ProductComponent=(item)=>{
             <Text as='s' color="grey">{original_price}</Text>
         </Flex>
       </Box>
+
 
     )
 }
