@@ -3,7 +3,7 @@ import { getCurrentProductData } from "../Redux/Products/action"
  import {useDispatch} from "react-redux"                   //data ko redux m send k liye
  import {useSelector} from "react-redux"
  import { Text } from "@chakra-ui/react"
-import { Filter } from "../Components/Filter"
+// import { Filter } from "../Components/Filter"
 import { ProductComponent } from "../Components/product"
 import { Grid, GridItem } from '@chakra-ui/react'
 import { useParams } from "react-router-dom"

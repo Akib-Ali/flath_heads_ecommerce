@@ -1,4 +1,7 @@
-import { PRODUCT_LOADING,PRODUCT_SUCCESS,PRODUCT_ERROR,CURRENT_PRODUCT_LOADING,CURRENT_PRODUCT_SUCCESS,CURRENT_PRODUCT_ERROR } from "./actionTypes"
+import { PRODUCT_LOADING,PRODUCT_SUCCESS,PRODUCT_ERROR,CURRENT_PRODUCT_LOADING,CURRENT_PRODUCT_SUCCESS,CURRENT_PRODUCT_ERROR,MEN_PRODUCT_LOADING,MEN_PRODUCT_ERROR,MEN_PRODUCT_SUCCESS } from "./actionTypes"
+// import { useDispatch } from "react-redux"
+import axios from "axios"
+
 const handleLoading=(payload)=>({
     type:PRODUCT_LOADING,
     payload
@@ -15,17 +18,34 @@ const handleSuccess=(payload)=>({
 })
 
 
-// add thunk
 
-const getData = () => (dispatch) => {
+
+// add thunk
+// console.log(gender)
+
+// let url = `https://doctor-patient123.herokuapp.com/products?gender=${gender}`
+// axios.get("https://doctor-patient123.herokuapp.com/products",{
+        //     params:{
+        //         ...payload,
+        //     }
+        // })
+
+const getData = (payload) => (dispatch) => {
 
         dispatch(handleLoading())
-        fetch("https://doctor-patient123.herokuapp.com/products")
+         fetch("https://doctor-patient123.herokuapp.com/products",{
+            params:{
+                ...payload
+            }
+
+         })
+        
         .then((res)=> res.json())
         .then((res)=> dispatch(handleSuccess(res)))                                          //pehle console.log(res)
         .catch(()=> dispatch(handleError()))
 
 }
+
 
 
 
@@ -62,8 +82,37 @@ const handleCurrentProductSuccess=(payload)=>({
 
 
 
+// MEN PRODUCT K
 
-export {getData,getCurrentProductData}
+const menhandleLoading=(payload)=>({
+    type:MEN_PRODUCT_LOADING,
+    payload
+})
+
+const menhandleError=()=>({
+    type:MEN_PRODUCT_ERROR
+})
+
+const menhandleSuccess=(payload)=>({
+    type:MEN_PRODUCT_SUCCESS,
+    payload
+
+})
+
+const getMenData = () => (dispatch) => {
+
+    dispatch(menhandleLoading())
+    fetch("https://doctor-patient123.herokuapp.com/products?gender=MEN")
+    .then((res)=> res.json())
+    .then((res)=> dispatch(menhandleSuccess(res)))                                          //pehle console.log(res)
+    .catch(()=> dispatch(menhandleError()))
+
+}
+
+
+
+
+export {getData,getCurrentProductData,getMenData}
 
 
 // export {storeData,handleLoading,handleError, getData,getCurrentProductData}

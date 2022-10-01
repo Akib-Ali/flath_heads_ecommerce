@@ -3,7 +3,8 @@ export const Home=()=>{
 
     const data = useSelector((state) => state.products)
 
-    console.log(data)
+
+    // console.log(data)
     return(
         <h1>Home Page</h1>
     )
