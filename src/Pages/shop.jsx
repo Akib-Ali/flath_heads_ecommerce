@@ -16,6 +16,7 @@ export const Shop=()=>{
    const products = useSelector((state)=> state.product.products)
    const loading = useSelector((state)=> state.product.loading)
    const error = useSelector((state)=>state.product.error)
+
      console.log(products)
 
      const [searchParams] = useSearchParams()
@@ -23,19 +24,19 @@ export const Shop=()=>{
 
     useEffect(() => {
        
-    //     if(products?.length === 0){
-    //         dispatch(getData())
-    //     }   
-    // },[dispatch,products.length])
+        if(products?.length === 0){
+            dispatch(getData())
+        }   
+    },[dispatch,products.length])
 
-    if(products?.length===0){
-        let params={
-            gender:searchParams.getAll("gender")
-        }
-        dispatch(getData(params))
-    }
+    // if(products?.length===0){
+    //     let params={
+    //         gender:searchParams.getAll("gender")
+    //     }
+    //     dispatch(getData(params))
+    // }
     
-    },[dispatch,products?.length,searchParams])
+    // },[dispatch,products?.length,searchParams])
     
     return(
         <div>
