@@ -1,6 +1,6 @@
 import { PRODUCT_LOADING,PRODUCT_SUCCESS,PRODUCT_ERROR,CURRENT_PRODUCT_LOADING,CURRENT_PRODUCT_SUCCESS,CURRENT_PRODUCT_ERROR,MEN_PRODUCT_LOADING,MEN_PRODUCT_ERROR,MEN_PRODUCT_SUCCESS } from "./actionTypes"
 // import { useDispatch } from "react-redux"
-import axios from "axios"
+import Axios from "axios"
 
 const handleLoading=(payload)=>({
     type:PRODUCT_LOADING,
@@ -23,12 +23,7 @@ const handleSuccess=(payload)=>({
 // add thunk
 // console.log(gender)
 
-// let url = `https://doctor-patient123.herokuapp.com/products?gender=${gender}`
-// axios.get("https://doctor-patient123.herokuapp.com/products",{
-        //     params:{
-        //         ...payload,
-        //     }
-        // })
+
 
 const getData = (payload) => (dispatch) => {
 
@@ -45,6 +40,7 @@ const getData = (payload) => (dispatch) => {
         .catch(()=> dispatch(handleError()))
 
 }
+
 
 
 

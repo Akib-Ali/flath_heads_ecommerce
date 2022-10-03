@@ -29,14 +29,6 @@ export const Shop=()=>{
         }   
     },[dispatch,products.length])
 
-    // if(products?.length===0){
-    //     let params={
-    //         gender:searchParams.getAll("gender")
-    //     }
-    //     dispatch(getData(params))
-    // }
-    
-    // },[dispatch,products?.length,searchParams])
     
     return(
         <div>
