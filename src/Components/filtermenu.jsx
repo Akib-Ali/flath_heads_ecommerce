@@ -1,9 +1,17 @@
-import { Box ,Image,Text,Flex,Checkbox, CheckboxGroup ,VStack } from '@chakra-ui/react'
-import { Radio, RadioGroup,Stack } from '@chakra-ui/react'
-import {getData} from "../Redux/Products/action"
 import React, { useState ,useEffect} from "react";
-import { useSearchParams } from 'react-router-dom';
-import {
+import {useSearchParams} from "react-router-dom";
+import { Box ,Text,VStack,Checkbox,CheckboxGroup,  Menu,Button,
+    MenuButton,
+    MenuList,
+    MenuItem,
+    MenuItemOption,
+    MenuGroup,
+    MenuOptionGroup,
+    MenuDivider,
+  } from "@chakra-ui/react";
+  import { Tooltip } from '@chakra-ui/react'
+
+  import {
     Accordion,
     AccordionItem,
     AccordionButton,
@@ -16,11 +24,12 @@ import {
 
 import { useDispatch } from "react-redux";
  import  data from "../data.json"
-import { FilterMenusmall } from './filtermenu';
 
-export const Filter=()=>{
-    
-     {/* this code moin*/}
+export const FilterMenusmall=()=>{
+
+
+
+    {/* this code moin*/}
     const [filter,setfilter]= useState(data)
     const [colorfilter,setcolorfilter] = useState(data)
     const [collectionfilter,Setcollectionfilter] = useState(data)
@@ -59,34 +68,21 @@ export const Filter=()=>{
         },[collectionfilter])
   
 
-    {/* this code moin end*/}
-
-
-    
-
-      
-
-
-
-
-
-  
     return (
+        <Box display={{base:"block" ,md:"none"}} p="0rem, 2rem">
+        <Menu closeOnSelect={false}>
+        <Tooltip hasArrow label='You can Filter Product for these below category'>
+
+      <MenuButton as={Button} colorScheme='blue'>
+        Filter Product
+      </MenuButton>
       
-
-       <Box width="250px" >
-       <Box  display={{ md:"block" ,base:"none"}} p="1rem 2 rem"  width="280px">
-
-      
-
+    </Tooltip>
+      <MenuList minWidth='240px'>
        
-         
-      
-
-        
-
-
- <Accordion allowMultiple>
+        <MenuOptionGroup title='Filter by Category ' type='checkbox'>
+          
+        <Accordion allowMultiple>
   
 
   <AccordionItem>
@@ -128,7 +124,7 @@ export const Filter=()=>{
 
   
   
-  
+  {/* collection */}
 
 
   <AccordionItem>
@@ -216,20 +212,13 @@ export const Filter=()=>{
   </AccordionItem>
 </Accordion>
 
-
-
     
-            </Box> 
-
-         <FilterMenusmall/>  
-        </Box>
+        </MenuOptionGroup>
+      </MenuList>
+    </Menu>
+    </Box>
     
-
-
-
-
-
-
-
+    
+    
     )
 }
