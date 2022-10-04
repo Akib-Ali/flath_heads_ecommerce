@@ -125,8 +125,8 @@ export default function Simple() {
      display={{ base: 'none', md: 'flex' }}>
 
     <Link to="/collections/all">   <Text fontSize='lg' fontWeight={850}>Shop </Text></Link>
-    <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>WOMEN <ChevronDownIcon></ChevronDownIcon></Text></Link>
-    <Link to="/mensshoes">   <Text fontSize='lg' fontWeight={700}>MEN <ChevronDownIcon></ChevronDownIcon></Text></Link>
+    <Link to="/collection/women-shop">   <Text fontSize='lg' fontWeight={700}>WOMEN <ChevronDownIcon></ChevronDownIcon></Text></Link>
+    <Link to="/collection/men-shop">   <Text fontSize='lg' fontWeight={700}>MEN <ChevronDownIcon></ChevronDownIcon></Text></Link>
   
     <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>CLASSICS <ChevronDownIcon></ChevronDownIcon></Text></Link>
     <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>ABOUT <ChevronDownIcon></ChevronDownIcon></Text></Link>

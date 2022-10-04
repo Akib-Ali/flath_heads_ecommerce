@@ -1,4 +1,4 @@
-import { PRODUCT_LOADING,PRODUCT_SUCCESS,PRODUCT_ERROR,CURRENT_PRODUCT_LOADING,CURRENT_PRODUCT_SUCCESS,CURRENT_PRODUCT_ERROR,MEN_PRODUCT_LOADING,MEN_PRODUCT_ERROR,MEN_PRODUCT_SUCCESS } from "./actionTypes"
+import { PRODUCT_LOADING,PRODUCT_SUCCESS,PRODUCT_ERROR,CURRENT_PRODUCT_LOADING,CURRENT_PRODUCT_SUCCESS,CURRENT_PRODUCT_ERROR,MEN_PRODUCT_LOADING,MEN_PRODUCT_ERROR,MEN_PRODUCT_SUCCESS,WOMEN_PRODUCT_LOADING,WOMEN_PRODUCT_SUCCESS,WOMEN_PRODUCT_ERROR } from "./actionTypes"
 // import { useDispatch } from "react-redux"
 import Axios from "axios"
 
@@ -108,7 +108,42 @@ const getMenData = () => (dispatch) => {
 
 
 
-export {getData,getCurrentProductData,getMenData}
+// Women PrOduct k liye
+
+const womenhandleloading=(payload)=>({
+    type: WOMEN_PRODUCT_LOADING,
+    payload
+
+})
+
+
+const womenhandleError=()=>({
+    type:WOMEN_PRODUCT_ERROR
+})
+
+const womenhandleSuccess=(payload)=>({
+    type:WOMEN_PRODUCT_SUCCESS,
+    payload
+
+})
+
+const getWomenData = () => (dispatch) => {
+
+    dispatch(womenhandleloading())
+    fetch("https://doctor-patient123.herokuapp.com/products?gender=WOMEN")
+    .then((res)=> res.json())
+    .then((res)=> dispatch(womenhandleSuccess(res)))                                          //pehle console.log(res)
+    .catch(()=> dispatch(womenhandleError()))
+
+}
+
+
+
+
+
+
+
+export {getData,getCurrentProductData,getMenData,getWomenData}
 
 
 // export {storeData,handleLoading,handleError, getData,getCurrentProductData}
