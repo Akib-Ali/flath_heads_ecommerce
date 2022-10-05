@@ -10,6 +10,8 @@ import { useParams } from "react-router-dom"
 import { ProductDetailComponent } from "../Components/productdetailcomponent"
 import { Box} from '@chakra-ui/react'
 import { Stack, HStack, VStack } from '@chakra-ui/react'
+import { ProductdetailComIIND } from "../Components/productdetailcomIIndpart"
+import { PDASSlider } from "../Components/productdetailallshoeSlider"
 
 
 export const ProductDetail=()=>{
@@ -57,6 +59,8 @@ export const ProductDetail=()=>{
   <Box  width={["95%" , "75%"]} margin="auto" mt="50px" mb="50px">
     
   <ProductDetailComponent productdetail={currentproduct}/>
+  <ProductdetailComIIND/>
+  <PDASSlider productdetail={currentproduct}/>
   </Box>
   
 

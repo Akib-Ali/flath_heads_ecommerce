@@ -19,7 +19,8 @@ import {
   MenuDivider, 
   useDisclosure,
   useColorModeValue,
-  Stack, Text, Spacer, Icon, Input,Image
+  Stack, Text, Spacer, Icon, Input,Image,
+  Center,Circle
  } from '@chakra-ui/react';
 
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, Search2Icon, ArrowForwardIcon } from '@chakra-ui/icons';
@@ -148,9 +149,15 @@ export default function Simple() {
 
     <Flex  align="center"  onClick={onOpen} ref={btnRef}>
      <Icon as={BsBasket3} boxSize="25px" mx={4} />
-     <Text backgroundColor={"#FFABE1"} borderRadius="35%" fontSize="2xl" fontWeight={700}>
+
+     
+
+    <Circle size='40px' bg='yellow' color='white'>
+    <Text  fontSize="2xl" fontWeight={700}>
       {cart ? cart.length : 0}
       </Text>
+    </Circle>
+
       </Flex>
       <MenuButton
        ml="10px"
