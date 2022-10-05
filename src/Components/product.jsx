@@ -27,7 +27,7 @@ export const ProductComponent=(item)=>{
 
     return(
       
-        <Box  height="400px" width="95%"  color='white' onMouseEnter={mouseenterimage} onMouseLeave={mouseremoveimage}
+        <Box  height="320px" width="95%"  color='white' onMouseEnter={mouseenterimage} onMouseLeave={mouseremoveimage}
          border="2px solid purple"
          onClick={()=> navigate(`/collections/all/${id}`)}
         >

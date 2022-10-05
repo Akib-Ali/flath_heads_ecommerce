@@ -9,6 +9,7 @@ import { Grid, GridItem } from '@chakra-ui/react'
 import { useParams } from "react-router-dom"
 import { ProductDetailComponent } from "../Components/productdetailcomponent"
 import { Box} from '@chakra-ui/react'
+import { Stack, HStack, VStack } from '@chakra-ui/react'
 
 
 export const ProductDetail=()=>{
@@ -52,12 +53,13 @@ export const ProductDetail=()=>{
     
     return(
     
- <Grid templateColumns='repeat(2, 1fr)' gap={6} width="1250px" margin="auto" mt="70px" border="2px solid blue" height="500px">
 
+  <Box  width={["95%" , "75%"]} margin="auto" mt="50px" mb="50px">
     
   <ProductDetailComponent productdetail={currentproduct}/>
+  </Box>
   
 
-</Grid>
+
      )
 }

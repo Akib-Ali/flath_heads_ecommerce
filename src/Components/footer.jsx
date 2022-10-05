@@ -1,11 +1,12 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom'
-import { BsYoutube } from "react-icons/bs"
+ import { BsYoutube } from "react-icons/bs"
 import { BsTwitter} from "react-icons/bs"
 import {BsFacebook} from "react-icons/bs"
 import {TiSocialLinkedin} from "react-icons/ti"
 import {GrInstagram} from "react-icons/gr"
 import {HiMail} from "react-icons/hi"
+// import {  BsYoutube} from '@chakra-ui/bs'
 
 import {
   Box,
@@ -19,9 +20,9 @@ import {
 const Logo = (props) => {
   return (
     <>
-    <Link to="/">
-    <img src='https://cdn.shopify.com/s/files/1/0258/2485/4100/files/flatheads-logo-new-hotizontal_180x_2x_bf74c8db-79f1-4904-b343-3b0e2681ec07_192x32.png?v=1647508945' width="160px" height="100px"/>
-    </Link>
+     <Link to="/">
+    <img src='https://cdn.shopify.com/s/files/1/0258/2485/4100/files/flatheads-logo-new-hotizontal_180x_2x_bf74c8db-79f1-4904-b343-3b0e2681ec07_192x32.png?v=1647508945' width="120px" height="100px"/>
+    </Link> 
 
     
     </>
@@ -49,11 +50,12 @@ export default function LargeWithLogoLeft() {
             <Box>
               <Logo color={useColorModeValue('gray.700', 'white')} />
             </Box>
-            {/* <Text fontSize={'sm'}>
-              © 2022 Chakra Templates. All rights reserved
-            </Text> */}
+            <Text fontSize={'sm'} textDecoration="underline">
+              © 2022 flatheads
+            </Text>
 
-            <Box>
+             <Box display="flex" width="200px"  gap="20px">
+            
             
             <BsYoutube/>
             <BsTwitter/>
@@ -61,11 +63,11 @@ export default function LargeWithLogoLeft() {
             <TiSocialLinkedin/>
             <GrInstagram/>
             <HiMail/>
-            </Box>
+            </Box> 
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Product</ListHeader>
-            <Link to="/collections/all">Shop</Link>
+            <Link to="/collections/all">Shop All </Link>
             <Link to="/collection/women-shop">Women Product</Link>
             <Link to="/collection/men-shop">Men Product</Link>
             <Link href={'#'}>Pricing</Link>
