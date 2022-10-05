@@ -1,4 +1,5 @@
-import { Box, Button } from '@chakra-ui/react'
+import React from 'react';
+import { Box, Button, Spacer } from '@chakra-ui/react'
 import { Grid, GridItem ,Text,Flex} from '@chakra-ui/react'
 import CaptionCarousel from './slickshoes';
 import "slick-carousel/slick/slick.css"; 
@@ -8,7 +9,27 @@ import { ToastExample } from './productdetailtoast';
 import { useState } from 'react';
 import { addTOCart } from '../Redux/Cart/action';
 import {useDispatch} from "react-redux" 
+import { useDisclosure } from '@chakra-ui/react';
 import { Stack, HStack, VStack,SimpleGrid } from '@chakra-ui/react'
+import { Center, Square, Circle } from '@chakra-ui/react'
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from '@chakra-ui/react'
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from '@chakra-ui/react'
+
+
+
 
 
 
@@ -21,17 +42,6 @@ export const ProductDetailComponent=({productdetail})=>{
 
     const [size,setsize]= useState(null)
 
-    const settings = {
-        dots: true,
-         infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-      };
-
-    
-
-
     const handleCart=()=>{
       let payload ={
         ...productdetail,
@@ -41,6 +51,31 @@ export const ProductDetailComponent=({productdetail})=>{
       dispatch(addTOCart(payload))
     }
 
+    const settings = {
+        dots: true,
+         infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+      };
+
+    
+      const settings2 ={
+        dots: true,
+         infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        
+      }
+
+
+const { isOpen, onOpen, onClose } = useDisclosure()
+const finalRef = React.useRef(null)
+
+
+
+    
+
     return(
        
       
@@ -48,7 +83,7 @@ export const ProductDetailComponent=({productdetail})=>{
 
     {/* left */}
 
-    <Box width={["95%", "40%"]} border="2px solid pink"   pl="20px" pr="10px">
+    <Box width={["95%", "40%"]}  border="1px solid #FFABE1"   pl="20px" pr="10px">
         
          <Slider {...settings}>
          
@@ -56,17 +91,35 @@ export const ProductDetailComponent=({productdetail})=>{
              return  <img src={img} />
          })}
         </Slider> 
+
+
+        <Box>
+        
+          <Slider {...settings2}>
+          
+          {images.map((img)=>{
+            return <Flex border="2px solid #FF9494" gap="2">  <img src={img}/></Flex>
+          })}
+          
+          
+          </Slider>
+          
+         
+        </Box>
+
+
+
       </Box>
 
     
 
 
 
-  {/* end left */}
+  
 
   {/* right box  backgroundColor="#FFF5E4*/}
 
-    <Box  padding={["20px"]} >                                  {/* iind box */}
+    <Box  padding={["20px"]} >                              
     <Text fontSize={["2xl", "4xl"]} fontWeight={600} >{name +" " + "|" +" " + color + " " + "|" + " " +gender  } </Text>
     
      <Text fontSize="2xl" fontWeight={400} color="#7a877d" mt="12px">Rs {final_price}</Text> 
@@ -90,17 +143,68 @@ export const ProductDetailComponent=({productdetail})=>{
     </SimpleGrid>
 
     <Box mt="20px">
-
     <Button colorScheme='yellow' width="100%" disabled={!size} onClick={handleCart} mt="25px">
     {!size ? "Please seleact a size" : "ADD TO CART"}
     </Button>
+   </Box>
 
-    </Box>
+     <Text fontSize="xl" mt="20px">Use Simple Pay in 3 interest free payments</Text>
+     <Text fontSize="xl" mt="15px">Free 7 day return exchange</Text>
+     <Flex gap="30px" mt="10px">
+     <Text fontSize="xl" mt="15px">View COD Terms  & condition</Text>
+     <Button colorScheme='red' variant='link' fontSize="20px" onClick={onOpen}>Click here</Button>
+     </Flex>
+
+     {/* modal */}
+    <Box>
+     <Box ref={finalRef} tabIndex={-1} aria-label='Focus moved to this box'>
+          Some other content that'll receive focus on close.
+        </Box>
+  
+        <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose} size="3xl">
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>All Terms & Conditions !</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody >
+
+             <Text>
+             ✓ Cash on delivery is only serviceable in specific cities and pin codes. You can check if your location is eligible for COD via the availability checker above.
+             </Text>
+
+           <Text mt="10px">
+             ✓  In case of COD orders, order confirmation will be required from the recipient over call. Orders will not be dispatched until phone confirmation is completed.
+           </Text>
+
+           <Text mt="10px">
+           ✓  COD payment can be accepted by cash or credit/debit card. E-vouchers, store credit or foreign currency cannot be accepted as mode of payment.
+          </Text>
+          <Text mt="10px">
+          ✓  For COD orders refunds will be provided via store credit equivalent to the total order value. We cannot refund the amount by any other method, such as UPI or bank transfer. Shipping fee for COD order is non-refundable.
+         </Text>
+
+         <Text mt="10px">
+         ✓  Any dispute arising due to COD is subject to the jurisdiction of Bangalore, Karnataka.
+         </Text>
+            </ModalBody>
+  
+            <ModalFooter>
+             
+              Please Follow All Terms and conditions
+            </ModalFooter>
+          </ModalContent>
+        </Modal> 
+        
+        </Box>
+
+        {/* model*/}
+   
+     
 
     
   </Box>  
 
-  {/* rigt box end */}
+  
   </Stack>
       
     
