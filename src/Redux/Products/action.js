@@ -95,10 +95,14 @@ const menhandleSuccess=(payload)=>({
 
 })
 
-const getMenData = () => (dispatch) => {
+const getMenData = (payload) => (dispatch) => {
 
     dispatch(menhandleLoading())
-    fetch("https://doctor-patient123.herokuapp.com/products?gender=MEN")
+    fetch("https://doctor-patient123.herokuapp.com/products?gender=MEN" ,{
+        params:{
+            ...payload
+        }
+    })
     .then((res)=> res.json())
     .then((res)=> dispatch(menhandleSuccess(res)))                                          //pehle console.log(res)
     .catch(()=> dispatch(menhandleError()))

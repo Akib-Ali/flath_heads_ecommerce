@@ -6,6 +6,12 @@ import { Text } from "@chakra-ui/react"
 import { Filter } from "../Components/Filter"
 import { ProductComponent } from "../Components/product"
 import { Grid, GridItem } from '@chakra-ui/react'
+import { Stack, HStack, VStack } from '@chakra-ui/react'
+import { SimpleGrid } from '@chakra-ui/react'
+import { Box,Flex } from '@chakra-ui/react'
+import { Link } from "react-router-dom"
+
+import {ChevronRightIcon } from '@chakra-ui/icons'
 
 export const WomenProduct=()=>{
     
@@ -28,29 +34,36 @@ export const WomenProduct=()=>{
     
         return(
             <div>
-            <Text fontSize="2xl">MEN SHOES</Text>
-                {/* {allmenproducts.map((elem)=> <h1> {elem.name}</h1>
-                )} */}
+            
+            <Box  ml={["15px", "150px"]} mt="50px">
+              <Flex>
+                 <Link to="/">Home  <ChevronRightIcon> </ChevronRightIcon></Link>
+                 <Link to="/collections/all">Collection <ChevronRightIcon> </ChevronRightIcon></Link>
+                 <Text opacity={0.5}>Shop Women</Text>
+              </Flex>
+              <Text mt="20px" fontSize={"3xl"} fontWeight="400">Shop Women</Text>
+           </Box>
+         
     
                 {
                 loading ?
                 <h1>Entities loading.....</h1>
                 :error ?
                 <h1>some thing wrong .please try again later</h1>
-                :<Grid templateColumns="1fr 2fr" gap="4" border="9px solid purple">
+                :<Stack direction={['column', 'row']} spacing='80px' border="4px solid blue" width={["95%", "83%"]} margin="auto" marginTop="100px">
     
                 <Filter/>
                 
-                <Grid templateColumns='repeat(3, 1fr)' gap={6} border="4px solid blue" width="1000px">
+                <SimpleGrid columns={[1, null, 3]} spacing='40px'>
                  {allwomenproducts.length > 0 && allwomenproducts.map((item)=>{
                         return <ProductComponent key={item.id} {...item}/>
                     })}
             
     
               
-               </Grid>
+               </SimpleGrid>
     
-               </Grid>
+               </Stack>
                 } 
     
                  

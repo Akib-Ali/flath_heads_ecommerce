@@ -8,7 +8,10 @@ import { ProductComponent } from "../Components/product"
 import { Grid, GridItem } from '@chakra-ui/react'
 import { useSearchParams } from "react-router-dom"
 import { Stack, HStack, VStack } from '@chakra-ui/react'
-import { SimpleGrid } from '@chakra-ui/react'
+import { SimpleGrid,Box,Flex } from '@chakra-ui/react'
+import { Link } from "react-router-dom"
+
+import {ChevronRightIcon } from '@chakra-ui/icons'
 
 export const Shop=()=>{
 
@@ -32,7 +35,15 @@ export const Shop=()=>{
     
     return(
         <div>
-           {/* <Text fontSize="2xl">Shop All</Text> */}
+        
+           <Box  ml={["15px", "150px"]} mt="50px">
+              <Flex>
+                 <Link to="/">Home  <ChevronRightIcon> </ChevronRightIcon></Link>
+                 <Link to="/collections/all">Collection <ChevronRightIcon> </ChevronRightIcon></Link>
+                 <Text opacity={0.5}>Shop All</Text>
+              </Flex>
+              <Text mt="20px" fontSize={"3xl"} fontWeight="400">Shop All</Text>
+           </Box>
           
 
           {
@@ -40,7 +51,7 @@ export const Shop=()=>{
             <h1>Entities loading.....</h1>
             :error ?
             <h1>some thing wrong .please try again later</h1>
-            : <Stack direction={['column', 'row']} spacing='80px' border="4px solid blue" width="83%" margin="auto" marginTop="100px">
+            : <Stack direction={['column', 'row']} spacing='80px' border="4px solid blue" width={["95%", "83%"]} margin="auto" marginTop="100px">
 
             <Filter/>
             
