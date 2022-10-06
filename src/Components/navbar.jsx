@@ -189,7 +189,7 @@ export default function Simple() {
            <Drawer
         isOpen={isOpen}
         size="sm"
-        placement='bottom'
+        placement='right'
         onClose={onClose}
         finalFocusRef={btnRef}
         >

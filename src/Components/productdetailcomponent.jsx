@@ -55,6 +55,7 @@ export const ProductDetailComponent=({productdetail})=>{
         dots: true,
          infinite: true,
         speed: 500,
+        autoplay: true,
         slidesToShow: 1,
         slidesToScroll: 1
       };
@@ -65,6 +66,7 @@ export const ProductDetailComponent=({productdetail})=>{
          infinite: true,
         speed: 500,
         slidesToShow: 3,
+        autoplay:true
         
       }
 
@@ -83,7 +85,7 @@ const finalRef = React.useRef(null)
 
     {/* left */}
 
-    <Box width={["95%", "40%"]}  border="1px solid #FFABE1"   pl="20px" pr="10px">
+    <Box width={["95%", "40%"]}     pl="20px" pr="10px">
         
          <Slider {...settings}>
          
@@ -98,7 +100,7 @@ const finalRef = React.useRef(null)
           <Slider {...settings2}>
           
           {images.map((img)=>{
-            return <Flex border="2px solid #FF9494" gap="2">  <img src={img}/></Flex>
+            return <Flex  gap="2">  <img src={img}/></Flex>
           })}
           
           
