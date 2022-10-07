@@ -6,6 +6,8 @@ import { Box ,Text,Button} from '@chakra-ui/react';
 import { Stack, HStack, VStack,Flex } from '@chakra-ui/react'
 import { SimpleGrid } from '@chakra-ui/react'
 import { WhyFlatheads } from './whyflatheads';
+import { Videofeatures } from '../Components/Video/videoorlogo';
+import { CustomerReview } from '../Components/customerreviews';
 
 
 export const Home=()=>{
@@ -33,6 +35,17 @@ export const Home=()=>{
            <Box>
             <WhyFlatheads/>
            </Box>
+
+
+           
+           <Box width="99%" border="1px solid #EDEDED" height={["80%" , "20%"]} margin="auto" mt="100px" backgroundColor="#EDEDED">
+            <CustomerReview/>
+           </Box>
+
+           <Box width={["99%" , "90%"]} margin="auto">
+            <Videofeatures/>
+           </Box>
+
               
       </Box>
       
