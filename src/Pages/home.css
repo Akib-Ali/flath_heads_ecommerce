@@ -7,7 +7,7 @@
 
 .imgcontrol{
     display: flex;
-    gap:"-20px"
+    /* gap:"-20px" */
 }
 
 
@@ -19,7 +19,8 @@
     }
     
     .imgcontrol img{
-        min-height: 220px;
+        /* min-height: 220px; */
+        height: 300px;
         min-width: 100%;
     
     

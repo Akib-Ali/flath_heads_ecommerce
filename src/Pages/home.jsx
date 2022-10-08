@@ -9,6 +9,7 @@ import { WhyFlatheads } from './whyflatheads';
 import { Videofeatures } from '../Components/Video/videoorlogo';
 import { CustomerReview } from '../Components/customerreviews';
 import "./home.css"
+import { HomeAllShoes } from '../Components/homepageshoesslider/homeallshoes';
 
 
 export const Home=()=>{
@@ -57,7 +58,7 @@ export const Home=()=>{
          autoplay: true,
 
         slidesToShow: 2,
-        slidesToScroll: 2
+        slidesToScroll: 1
       };
 
 
@@ -69,7 +70,7 @@ export const Home=()=>{
 
 
          
-         <Box width={["100%", "98%"]}    pl="20px" pr="10px" mt="60px" margin="auto">
+         <Box width={["98%", "98%"]}    mt="60px" margin="auto">
         
         <Slider {...settings}>
         
@@ -84,7 +85,11 @@ export const Home=()=>{
            })}
          </Slider> 
 
+    </Box>
 
+
+       <Box width={["98%" , "90%"]}  margin="auto" mt="50px" height="400px">
+        <HomeAllShoes/>
        </Box>
 
 
