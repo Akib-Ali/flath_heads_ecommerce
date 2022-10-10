@@ -37,6 +37,11 @@ import {
   DrawerCloseButton,
 } from '@chakra-ui/react'
 
+import { useAuth0 } from "@auth0/auth0-react";
+
+
+
+
 
  const NavLink = ({ children, children: ReactNode }) => (
  <Link
@@ -99,6 +104,11 @@ export default function Simple() {
    })
 
 
+   //auth system
+   const { loginWithRedirect , logout ,  user, isAuthenticated } = useAuth0();
+
+
+
 
 
  return (
@@ -139,6 +149,17 @@ export default function Simple() {
      <Icon as={RiUserLine} boxSize="25px" mx={4} />
     </Flex>
 
+
+    {
+        isAuthenticated &&  <Flex gap={2}>
+          <Text color="#FF9494" fontWeight="400" fontSize="lg">Welcome</Text>
+          <Text color="#FF9494" fontWeight="700" fontSize="lg">{user.name}</Text>
+          <Text color="#FF9494" fontWeight="400" fontSize="lg">in flatheads.com</Text>
+            
+        </Flex>
+      
+       } 
+
     </HStack>
 
    </HStack>
@@ -175,10 +196,21 @@ export default function Simple() {
       </MenuButton>
 
        <MenuList>
-       <MenuItem>Link 1</MenuItem>
-       <MenuItem>Link 2</MenuItem>
-       <MenuDivider />
-        <MenuItem>Link 3</MenuItem>
+
+                        {/* Authentication */}
+
+                       
+
+
+       {
+        isAuthenticated ?
+      <Button colorScheme='orange' w="100%"    onClick={() => logout({ returnTo: window.location.origin })}>Log out</Button>
+      :
+     <Button colorScheme='orange' w="100%" onClick={() => loginWithRedirect()}>Login</Button>
+       }
+      
+      
+
         </MenuList>
         </Menu>
         </Flex>  

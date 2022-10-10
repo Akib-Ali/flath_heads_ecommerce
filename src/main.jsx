@@ -6,6 +6,8 @@ import { ChakraProvider } from '@chakra-ui/react'
 import {BrowserRouter} from "react-router-dom"
 import {Provider} from "react-redux"
 import {store} from "./Redux/store"
+import { Auth0Provider } from "@auth0/auth0-react";
+
 
 {/*iind*/}
 import axios from "axios";
@@ -18,13 +20,19 @@ axios.defaults.headers.post["Content-Type"] = "application/json"
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
       <ChakraProvider>
+      <Auth0Provider
+    domain="dev-osc-c7al.us.auth0.com"
+    clientId="WTEAjAWtdlJKe2nP3tBmGItce4czG9dj"
+    redirectUri={window.location.origin}
+  >
       <Provider store={store}>
       <BrowserRouter>
 
       <App />
       </BrowserRouter>
      </Provider>
-          </ChakraProvider>
+     </Auth0Provider>
+     </ChakraProvider>
 
   </React.StrictMode>
 )
