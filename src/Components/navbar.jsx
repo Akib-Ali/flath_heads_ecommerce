@@ -152,9 +152,9 @@ export default function Simple() {
 
     {
         isAuthenticated &&  <Flex gap={2}>
-          <Text color="#FF9494" fontWeight="200" fontSize="sm">Welcome</Text>
-          <Text color="#FF9494" fontWeight="500" fontSize="lg">{user.name}</Text>
-          <Text color="#FF9494" fontWeight="200" fontSize="sm">in flatheads</Text>
+          <Text color="#FF9494" fontWeight="200" fontSize="md">Welcome</Text>
+          <Text color="#FF9494" fontWeight="500" fontSize="md">{user.name}</Text>
+          <Text color="#FF9494" fontWeight="200" fontSize="md">in flatheads</Text>
             
         </Flex>
       
