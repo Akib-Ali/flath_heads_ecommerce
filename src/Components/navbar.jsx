@@ -146,7 +146,7 @@ export default function Simple() {
 
      <Flex>
      <Icon as={BsSearch} boxSize="25px" mx={4} />
-     <Icon as={RiUserLine} boxSize="25px" mx={4} />
+     {/* <Icon as={RiUserLine} boxSize="25px" mx={4} /> */}
     </Flex>
 
 
