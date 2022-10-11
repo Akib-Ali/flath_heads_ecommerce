@@ -235,6 +235,12 @@ export default function Simple() {
          <DrawerHeader>TOTAL CART ITEM ({cart.length})</DrawerHeader>
 
          <DrawerBody>
+
+         {
+          !isAuthenticated &&   <Text mb="15px" fontWeight="600" color="red"> Please login Ist   checkout page!</Text>
+         }
+         
+
          {cart.length > 0 && cart.map((item)=>{
           return( 
          <>
@@ -288,12 +294,11 @@ export default function Simple() {
 
             <DrawerFooter>
 
-            {
-              isAuthenticated ?  <Link to="/checkout">
-            <Button size='lg' height='48px' width='400px' border='2px' borderColor='green.500' backgroundColor="black" color="white"> Check out</Button>  
-            </Link>    :    <Text> Please Login Ist</Text>
+             <Link to="/checkout">
+            <Button disabled={!isAuthenticated}  height='48px' width='400px' border='2px' borderColor='green.500'> Check out</Button>  
+            </Link>   
 
-            }
+        
            </DrawerFooter>
 
              <DrawerFooter>
