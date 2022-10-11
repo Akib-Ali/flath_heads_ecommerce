@@ -20,7 +20,7 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack, Text, Spacer, Icon, Input,Image,
-  Center,Circle
+  Center,Circle, Divider
  } from '@chakra-ui/react';
 
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, Search2Icon, ArrowForwardIcon } from '@chakra-ui/icons';
@@ -208,10 +208,16 @@ export default function Simple() {
 
        {
         isAuthenticated ?
-      <Button colorScheme='orange' w="100%"    onClick={() => logout({ returnTo: window.location.origin })}>Log out</Button>
+      <Button colorScheme='facebook' w="100%"    onClick={() => logout({ returnTo: window.location.origin })}>Log out</Button>
       :
-     <Button colorScheme='orange' w="100%" onClick={() => loginWithRedirect()}>Login</Button>
+     <Button colorScheme='facebook' w="100%" onClick={() => loginWithRedirect()}>Login</Button>
        }
+
+       <Divider></Divider>
+       <Divider></Divider>
+       <Divider></Divider>
+  
+      <Button colorScheme='facebook' w="100%"> Admin Login</Button>
       
       
 
