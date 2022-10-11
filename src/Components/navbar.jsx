@@ -146,11 +146,11 @@ export default function Simple() {
 
      <Flex>
      <Icon as={BsSearch} boxSize="25px" mx={4} />
-     {/* <Icon as={RiUserLine} boxSize="25px" mx={4} /> */}
+      <Icon as={RiUserLine} boxSize="25px" mx={4} /> 
     </Flex>
 
 
-    {
+    {/* {
         isAuthenticated &&  <Flex gap={2}>
           <Text color="#FF9494" fontWeight="200" fontSize="md">Welcome</Text>
           <Text color="#FF9494" fontWeight="500" fontSize="md">{user.name}</Text>
@@ -158,7 +158,7 @@ export default function Simple() {
             
         </Flex>
       
-       } 
+       }  */}
 
     </HStack>
 
@@ -168,10 +168,18 @@ export default function Simple() {
     <Flex alignItems={'center'} marginLeft="0px" width="160px">
     <Menu>
 
+    {
+        isAuthenticated &&  <Flex gap={2}>
+          <Text color="#FF9494" fontWeight="200" fontSize="md">Welcome</Text>
+          <Text color="#FF9494" fontWeight="500" fontSize="md">{user.name}</Text>
+          <Text color="#FF9494" fontWeight="200" fontSize="md">in flatheads</Text>
+            
+        </Flex>
+      
+       }
+
     <Flex  align="center"  onClick={onOpen} ref={btnRef}>
      <Icon as={BsBasket3} boxSize="25px" mx={4} />
-
-     
 
     <Circle size='40px' bg='yellow' color='white'>
     <Text  fontSize="2xl" fontWeight={700}>
@@ -180,6 +188,9 @@ export default function Simple() {
     </Circle>
 
       </Flex>
+
+
+
       <MenuButton
        ml="10px"
       as={Button}
