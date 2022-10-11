@@ -146,7 +146,7 @@ export default function Simple() {
 
      <Flex>
      <Icon as={BsSearch} boxSize="25px" mx={4} />
-      <Icon as={RiUserLine} boxSize="25px" mx={4} /> 
+      {/* <Icon as={RiUserLine} boxSize="25px" mx={4} />  */}
     </Flex>
 
 
@@ -168,7 +168,9 @@ export default function Simple() {
     <Flex alignItems={'center'} marginLeft="0px" width="160px">
     <Menu>
 
-    {
+
+    <Flex  align="center" >
+      {
         isAuthenticated &&  <Flex gap={2}>
           <Text color="#FF9494" fontWeight="200" fontSize="md">Welcome</Text>
           <Text color="#FF9494" fontWeight="500" fontSize="md">{user.name}</Text>
@@ -178,8 +180,8 @@ export default function Simple() {
       
        }
 
-    <Flex  align="center"  onClick={onOpen} ref={btnRef}>
-     <Icon as={BsBasket3} boxSize="25px" mx={4} />
+       
+     <Icon as={BsBasket3} boxSize="25px" mx={4}  onClick={onOpen} ref={btnRef} />
 
     <Circle size='40px' bg='yellow' color='white'>
     <Text  fontSize="2xl" fontWeight={700}>
