@@ -140,8 +140,6 @@ export default function Simple() {
     <Link to="/collection/women-shop">   <Text fontSize='lg' fontWeight={700}>WOMEN <ChevronDownIcon></ChevronDownIcon></Text></Link>
     <Link to="/collection/men-shop">   <Text fontSize='lg' fontWeight={700}>MEN <ChevronDownIcon></ChevronDownIcon></Text></Link>
   
-    {/* <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>CLASSICS <ChevronDownIcon></ChevronDownIcon></Text></Link> */}
-    {/* <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>ABOUT <ChevronDownIcon></ChevronDownIcon></Text></Link> */}
     <Link to="/shop">   <Text fontSize='lg' fontWeight={700}>HELP <ChevronDownIcon></ChevronDownIcon></Text></Link>
     <Spacer />
 
@@ -289,8 +287,14 @@ export default function Simple() {
            </Box>
 
             <DrawerFooter>
+
+            {
+              isAuthenticated ?  <Link to="/checkout">
             <Button size='lg' height='48px' width='400px' border='2px' borderColor='green.500' backgroundColor="black" color="white"> Check out</Button>  
-            </DrawerFooter>
+            </Link>    :    <Text> Please Login Ist</Text>
+
+            }
+           </DrawerFooter>
 
              <DrawerFooter>
              <Button size='lg' height='48px' width='400px' border='2px' borderColor='green.500'> View cart</Button>

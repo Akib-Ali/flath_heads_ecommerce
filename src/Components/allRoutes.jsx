@@ -7,6 +7,7 @@ import { MenProduct } from '../Pages/men'
 import { WomenProduct } from '../Pages/women'
 import Simple from '../Components/navbar'
 import LargeWithLogoLeft from './footer'
+import { Checkout } from './checkout'
 
 export const AllRoutes=()=>{
 
@@ -24,6 +25,7 @@ return(
         <Route path='/collections/all/:id' element={<ProductDetail/>}/>
         <Route path='/collection/men-shop' element={<MenProduct/>}/>
          <Route path='/collection/women-shop' element={<WomenProduct/>} /> 
+         <Route path="/checkout" element={<Checkout/>} />
 
         
     </Routes>

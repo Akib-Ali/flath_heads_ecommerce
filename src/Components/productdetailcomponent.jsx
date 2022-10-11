@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, Spacer } from '@chakra-ui/react'
 import { Grid, GridItem ,Text,Flex} from '@chakra-ui/react'
-import CaptionCarousel from './slickshoes';
+// import CaptionCarousel from './slickshoes';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
