@@ -164,9 +164,9 @@ export default function Simple() {
     <Flex  align="center" >
       {
         isAuthenticated &&  <Flex gap={2}>
-          <Text color="#FF9494" fontWeight="200" fontSize="md">Welcome</Text>
-          <Text color="#FF9494" fontWeight="500" fontSize="md">{user.name}</Text>
-          <Text color="#FF9494" fontWeight="200" fontSize="md">in flatheads</Text>
+          <Text color="#FF9494" fontWeight="200" fontSize="sm">Welcome</Text>
+          <Text color="#FF9494" fontWeight="500" fontSize="sm">{user.name}</Text>
+        
             
         </Flex>
       
