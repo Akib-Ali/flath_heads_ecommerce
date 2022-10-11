@@ -150,22 +150,14 @@ export default function Simple() {
     </Flex>
 
 
-    {/* {
-        isAuthenticated &&  <Flex gap={2}>
-          <Text color="#FF9494" fontWeight="200" fontSize="md">Welcome</Text>
-          <Text color="#FF9494" fontWeight="500" fontSize="md">{user.name}</Text>
-          <Text color="#FF9494" fontWeight="200" fontSize="md">in flatheads</Text>
-            
-        </Flex>
-      
-       }  */}
+    
 
     </HStack>
 
    </HStack>
            
            
-    <Flex alignItems={'center'} marginLeft="0px" width="160px">
+    <Flex alignItems={'center'} marginLeft="0px"  border="2px solid red">
     <Menu>
 
 
@@ -180,7 +172,7 @@ export default function Simple() {
       
        }
 
-       
+
      <Icon as={BsBasket3} boxSize="25px" mx={4}  onClick={onOpen} ref={btnRef} />
 
     <Circle size='40px' bg='yellow' color='white'>
