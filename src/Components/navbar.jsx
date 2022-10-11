@@ -113,7 +113,7 @@ export default function Simple() {
 
  return (
  <>
-  <Box bg={useColorModeValue('whitesmoke', 'whitesmoke')} px={6} >
+  <Box bg={useColorModeValue('whitesmoke', 'whitesmoke')} px={4} >
   <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
   <IconButton
   size={'md'}
@@ -123,7 +123,7 @@ export default function Simple() {
   onClick={isOpen ? onClose : onOpen}
   />
 
-  <HStack spacing={60} alignItems={'center'}>
+  <HStack spacing={["10","80"]} alignItems={'center'}>
 
   <Box marginLeft="50px" display={{base:'none' , md:'flex'}} alignItems="center">
   <Link to="/">
