@@ -301,7 +301,7 @@ export default function Simple() {
             <DrawerFooter>
 
              <Link to="/checkout">
-            <Button disabled={!isAuthenticated}  height='48px' width='400px' border='2px' borderColor='green.500'> Check out</Button>  
+            <Button disabled={!isAuthenticated} height='48px' width='400px' border='2px' borderColor='green.500'> Check out</Button>  
             </Link>   
 
         
