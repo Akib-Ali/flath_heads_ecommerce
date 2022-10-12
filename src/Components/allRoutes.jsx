@@ -8,6 +8,7 @@ import { WomenProduct } from '../Pages/women'
 import Simple from '../Components/navbar'
 import LargeWithLogoLeft from './footer'
 import { Checkout } from './checkout'
+import { Payment } from './payment'
 
 export const AllRoutes=()=>{
 
@@ -26,6 +27,7 @@ return(
         <Route path='/collection/men-shop' element={<MenProduct/>}/>
          <Route path='/collection/women-shop' element={<WomenProduct/>} /> 
          <Route path="/checkout" element={<Checkout/>} />
+         <Route path='/payment' element={<Payment/>}/>
 
         
     </Routes>

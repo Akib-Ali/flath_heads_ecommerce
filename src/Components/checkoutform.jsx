@@ -12,8 +12,8 @@ import {
     Heading,
     Text,
     useColorModeValue,
-    Link,
   } from '@chakra-ui/react';
+  import { Link } from 'react-router-dom';
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
   
@@ -100,7 +100,8 @@ import {
               </HStack>
 
               <Stack spacing={10} pt={2}>
-                <Button
+              <Link to="/payment">
+              <Button
                   loadingText="Submitting"
                   size="lg"
                   bg={'blue.400'}
@@ -110,6 +111,9 @@ import {
                   }}>
                   Continue To Shipping
                 </Button>
+
+              </Link>
+                
               </Stack>
               
             </Stack>
