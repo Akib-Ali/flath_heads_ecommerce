@@ -16,9 +16,34 @@ import {
   import { Link } from 'react-router-dom';
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+  import { useNavigate } from 'react-router-dom';
   
   export default function CheckoutCard() {
     const [showPassword, setShowPassword] = useState(false);
+    const [name, setname] = useState("");
+    const [lastname, setlastname] = useState("");
+    const [email, setemail] = useState("")
+    const [address, setaddress] = useState("")
+    const [city, setcity] = useState("")
+    const [state, setstate] = useState("")
+    const [pincode, setpincode] = useState("")
+
+    const navigate = useNavigate()
+    
+
+
+    function getformdata(e){
+      console.log(name,lastname,email,city)
+      e.preventDefault()
+      alert("Please Confirm this address")
+      navigate("/payment")
+    }
+
+
+    
+ 
+
+    
   
     return (
       <Flex
@@ -42,19 +67,20 @@ import {
             boxShadow={'lg'}
             p={8}>
             <Stack spacing={4}>
+            <form onSubmit={getformdata}>
 
               <HStack>
                  <Box>
-                  <FormControl id="firstName" isRequired>
+                  <FormControl id="firstName"  isRequired>
                     <FormLabel>First Name</FormLabel>
-                    <Input type="text" />
+                    <Input type="text" onChange={(e)=> setname(e.target.value)} />
                   </FormControl>
                 </Box>
 
                 <Box>
-                  <FormControl id="lastName">
+                  <FormControl id="lastName" isRequired>
                     <FormLabel>Last Name</FormLabel>
-                    <Input type="text" />
+                    <Input type="text"  onChange={(e) => setlastname(e.target.value)}/>
                   </FormControl>
                 </Box>
 
@@ -62,12 +88,12 @@ import {
 
               <FormControl id="email" isRequired>
                 <FormLabel>Email address</FormLabel>
-                <Input type="email" />
+                <Input type="email"  onChange={(e) => setemail(e.target.value)}/>
               </FormControl>
 
               <FormControl id="address" isRequired>
                 <FormLabel> Shipping Address</FormLabel>
-                <Input type="text" />
+                <Input type="text" onChange={(e) => setaddress(e.target.value)} />
             </FormControl>
 
 
@@ -76,32 +102,41 @@ import {
                  <Box>
                   <FormControl id="city" isRequired>
                     <FormLabel>City</FormLabel>
-                    <Input type="text" />
+                    <Input type="text" onChange={(e) => setcity(e.target.value)} />
                   </FormControl>
                 </Box>
 
                 <Box>
-                  <FormControl id="state">
+                  <FormControl id="state" isRequired>
                     <FormLabel>State</FormLabel>
-                    <Input type="text" />
+                    <select onChange={(e) => setstate(e.target.value)}>
+                      <option>Select Option</option>
+                      <option>Utter Pradesh</option>
+                      <option>Bihar</option>
+                      <option>Punjab</option>
+                      <option>U.K</option>
+                    </select>
                   </FormControl>
                 </Box>
 
 
                 <Box>
-                  <FormControl id="pincode">
+                  <FormControl id="pincode" isRequired>
                     <FormLabel>PinCode</FormLabel>
-                    <Input type="number" />
+                    <Input type="number"  onChange={(e)=> setpincode(e.target.value)}/>
                   </FormControl>
                 </Box>
 
- 
+            </HStack>
 
-              </HStack>
+
+               
+
 
               <Stack spacing={10} pt={2}>
-              <Link to="/payment">
-              <Button
+               
+               <Button 
+                 type='submit'
                   loadingText="Submitting"
                   size="lg"
                   bg={'blue.400'}
@@ -109,12 +144,18 @@ import {
                   _hover={{
                     bg: 'blue.500',
                   }}>
-                  Continue To Shipping
-                </Button>
 
-              </Link>
+                  continue to shopping
+                  
+                  
+                </Button> 
+
+                
+
+               
                 
               </Stack>
+              </form>
               
             </Stack>
           </Box>
