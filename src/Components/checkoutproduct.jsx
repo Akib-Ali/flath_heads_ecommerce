@@ -29,7 +29,7 @@ export const CheckOutProduct=()=>{
  
 
     return(
-        <Box border="3px solid blue" minHeight={"700px"}>
+        <Box  minHeight={"700px"}>
 
          {cart.length > 0 && cart.map((item)=>{
             return(

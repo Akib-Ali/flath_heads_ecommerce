@@ -156,7 +156,7 @@ export default function Simple() {
    </HStack>
            
            
-    <Flex alignItems={'center'} marginLeft="0px"  border="2px solid red">
+    <Flex alignItems={'center'} marginLeft="0px"  >
     <Menu>
 
 
@@ -230,7 +230,7 @@ export default function Simple() {
         {/* cart drawer here */}
            <Drawer
         isOpen={isOpen}
-        size="sm"
+        size="md"
         placement='right'
         onClose={onClose}
         finalFocusRef={btnRef}
@@ -259,7 +259,7 @@ export default function Simple() {
                 />
 
                 <Box>
-                  <Text>{`${item.name} | ${item.color}`}</Text>
+                  <Text>{`${item.name}   |   ${item.color}`}</Text>
                   <Text>{item.gender}</Text>
                   <Flex gap={6}>
                    <Text>{`size : ${item.size}`}</Text>
@@ -301,7 +301,7 @@ export default function Simple() {
             <DrawerFooter>
 
              <Link to="/checkout">
-            <Button height='48px' width='400px' border='2px' borderColor='green.500'>
+            <Button disabled={!isAuthenticated} height='48px' width='400px' border='2px' borderColor='green.500'>
              Check out
             </Button>  
             </Link>   

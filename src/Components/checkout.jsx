@@ -7,7 +7,7 @@ export const Checkout=()=>{
 
     return(
         
-      <Stack direction={['column', 'row']} spacing='24px' border="2px solid red" w="98%" margin="auto">
+      <Stack direction={['column', 'row']} spacing='24px' w="98%" margin="auto"  border="0.5px solid grey" mt="50px">
 
       <Box w={["100%" , "40%"]} border="1px solid grey">
       <CheckoutCard/>

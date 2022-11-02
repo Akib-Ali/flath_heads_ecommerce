@@ -47,10 +47,11 @@ export const WomenProduct=()=>{
     
                 {
                 loading ?
-                <h1>Entities loading.....</h1>
+                <Text fontSize={"2xl"} textAlign="center" fontWeight={"600"}>Entities loading.....</Text>
+ 
                 :error ?
                 <h1>some thing wrong .please try again later</h1>
-                :<Stack direction={['column', 'row']} spacing='80px' border="4px solid blue" width={["95%", "83%"]} margin="auto" marginTop="100px">
+                :<Stack direction={['column', 'row']} spacing='80px' border="0.5px solid grey" width={["95%", "83%"]} margin="auto" marginTop="100px">
     
                 <Filter/>
                 
