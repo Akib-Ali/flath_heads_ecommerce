@@ -1,5 +1,6 @@
 import { Box ,Stack} from "@chakra-ui/react"
 import { SimpleGrid,Image ,Text,Button} from '@chakra-ui/react'
+// import {Flathead_customerImages} from "./Components/Video/Flathead_customerimages.jpg"
 import "./whyflatheads.css"
 
 export const WhyFlatheads=()=>{
@@ -39,6 +40,8 @@ export const WhyFlatheads=()=>{
 
         <div className="fbimage">
              <img  src="https://scontent.fknu1-2.fna.fbcdn.net/v/t1.6435-9/101687732_562634347970864_8825524977093574656_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9267fe&_nc_ohc=7zeNRm5dXIoAX--2Q78&_nc_ht=scontent.fknu1-2.fna&oh=00_AT_y9lRtl3lTO1th2lz9ADNUxNOXmkaxErmJ5zOunxOjew&oe=6363A119https://scontent.fknu1-2.fna.fbcdn.net/v/t1.6435-9/101687732_562634347970864_8825524977093574656_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9267fe&_nc_ohc=7zeNRm5dXIoAX--2Q78&_nc_ht=scontent.fknu1-2.fna&oh=00_AT_y9lRtl3lTO1th2lz9ADNUxNOXmkaxErmJ5zOunxOjew&oe=6363A119"/> 
+
+             {/* <img src={Flathead_customerImages}/> */}
         </div>
      
         
