@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ReactNode } from 'react';
+import flatheads_navbarlogo from  "../Components/Video/flatheads_navbarlogo.webp"
 import { Link } from 'react-router-dom'
 import { BsSearch } from 'react-icons/bs'
 import { RiUserLine } from "react-icons/ri"
@@ -127,7 +128,7 @@ export default function Simple() {
 
   <Box marginLeft="50px" display={{base:'none' , md:'flex'}} alignItems="center">
   <Link to="/">
-  <img src='https://cdn.shopify.com/s/files/1/0258/2485/4100/files/flatheads-logo-new-hotizontal_180x_2x_bf74c8db-79f1-4904-b343-3b0e2681ec07_192x32.png?v=1647508945' width="160px" height="100px"/> 
+  <img src={flatheads_navbarlogo} width="160px" height="100px"/> 
   </Link>
   </Box>
 

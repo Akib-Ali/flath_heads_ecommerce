@@ -10,6 +10,7 @@ import { SimpleGrid } from '@chakra-ui/react'
 import { MenFilter } from "../Components/MenFilter"
 import { Box,Flex } from '@chakra-ui/react'
 import { Link } from "react-router-dom"
+import { Progress } from '@chakra-ui/react'
 
 import {ChevronRightIcon } from '@chakra-ui/icons'
 
@@ -46,7 +47,8 @@ console.log(allmenproducts)
 
             {
             loading ?
-            <Text fontSize={"2xl"} textAlign="center" fontWeight={"600"}>Entities loading.....</Text>
+            <Progress size='md' isIndeterminate  w="90%" margin={"auto"}/>
+        
             :error ?
             <h1>some thing wrong .please try again later</h1>
             :<Stack direction={['column', 'row']} spacing='80px' border="0.5px solid grey" width={["95%", "83%"]} margin="auto" marginTop="100px">

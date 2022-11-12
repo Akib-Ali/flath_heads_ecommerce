@@ -13,6 +13,8 @@ import { Stack, HStack, VStack } from '@chakra-ui/react'
 import { ProductdetailComIIND } from "../Components/productdetailcomIIndpart"
 import { PDASSlider } from "../Components/productdetailallshoeSlider"
 
+import { Progress } from '@chakra-ui/react'
+
 
 export const ProductDetail=()=>{
 
@@ -35,7 +37,7 @@ export const ProductDetail=()=>{
     },[dispatch,id])
 
     if(loading){
-        return <h1>Loading.....</h1>
+        return   <Progress size='md' isIndeterminate  w="80%" margin={"auto"}/>
 
     }
     if(error){

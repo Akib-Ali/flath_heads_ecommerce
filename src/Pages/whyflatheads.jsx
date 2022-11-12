@@ -8,6 +8,7 @@ import SupremeComfort from "../Components/Video/SupremeComfort.webp"
 import Ultra_Lightweight from "../Components/Video/Ultra_Lightweight.webp"
 import Environment_friendly from "../Components/Video/Environment_friendly.webp"
 import flatheadscustomer_03 from "../Components/Video/flatheadscustomer_03_images.jpg"
+import comming_soon_images from "../Components/Video/comming_soon_images.jpg"
 import "./whyflatheads.css"
 
 export const WhyFlatheads = () => {
@@ -62,7 +63,7 @@ export const WhyFlatheads = () => {
          <div className="fbimage">
 
 
-            <img src={Flatheads_iindcustomerimages} />
+            <img src={Flathead_customerImages} />
          </div>
 
 

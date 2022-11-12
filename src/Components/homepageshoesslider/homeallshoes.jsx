@@ -3,6 +3,8 @@ import { getData } from "../../Redux/Products/action"
  import {useDispatch} from "react-redux"                   //data ko redux m send k liye
  import {useSelector} from "react-redux"
  import { Stack,SimpleGrid,Box,Text} from "@chakra-ui/react"
+ 
+import { Progress } from '@chakra-ui/react'
 
 import Slider from "react-slick";
 
@@ -49,7 +51,7 @@ export const HomeAllShoes=()=>{
 
         {
             loading ?
-            <h1>Entities loading.....</h1>
+            <Progress size='md' isIndeterminate  w="90%" margin={"auto"}/>
             :error ?
             <h1>some thing wrong .please try again later</h1>
             : <Box>

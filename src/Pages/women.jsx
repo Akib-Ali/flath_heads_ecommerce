@@ -10,6 +10,7 @@ import { Stack, HStack, VStack } from '@chakra-ui/react'
 import { SimpleGrid } from '@chakra-ui/react'
 import { Box,Flex } from '@chakra-ui/react'
 import { Link } from "react-router-dom"
+import { Progress } from '@chakra-ui/react'
 
 import {ChevronRightIcon } from '@chakra-ui/icons'
 
@@ -47,7 +48,8 @@ export const WomenProduct=()=>{
     
                 {
                 loading ?
-                <Text fontSize={"2xl"} textAlign="center" fontWeight={"600"}>Entities loading.....</Text>
+                <Progress size='md' isIndeterminate  w="90%" margin={"auto"}/>
+            
  
                 :error ?
                 <h1>some thing wrong .please try again later</h1>

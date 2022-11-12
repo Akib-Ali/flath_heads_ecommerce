@@ -10,6 +10,7 @@ import { useSearchParams } from "react-router-dom"
 import { Stack, HStack, VStack } from '@chakra-ui/react'
 import { SimpleGrid,Box,Flex } from '@chakra-ui/react'
 import { Link } from "react-router-dom"
+import { Progress } from '@chakra-ui/react'
 
 import {ChevronRightIcon } from '@chakra-ui/icons'
 
@@ -48,7 +49,8 @@ export const Shop=()=>{
 
           {
             loading ?
-            <Text fontSize={"2xl"} textAlign="center" fontWeight={"600"}>Entities loading.....</Text>
+          
+            <Progress size='md' isIndeterminate  w="80%" margin={"auto"}/>
  
             :error ?
             <h1>some thing wrong .please try again later</h1>

@@ -8,6 +8,7 @@ import yourstorylogo from "./yourstorylogo.webp"
 import lbblogo from "./lbblogo.webp"
 import cnbclogo from "./cnbclogo.webp"
 import theindianexlogo from "./theindianexlogo.webp"
+
 export const Videofeatures = () => {
 
     const logo = [
