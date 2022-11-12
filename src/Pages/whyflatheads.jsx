@@ -7,6 +7,7 @@ import Smart_design from "../Components/Video/Smart_design.webp"
 import SupremeComfort from "../Components/Video/SupremeComfort.webp"
 import Ultra_Lightweight from "../Components/Video/Ultra_Lightweight.webp"
 import Environment_friendly from "../Components/Video/Environment_friendly.webp"
+import flatheadscustomer_03 from "../Components/Video/flatheadscustomer_03_images.jpg"
 import "./whyflatheads.css"
 
 export const WhyFlatheads = () => {

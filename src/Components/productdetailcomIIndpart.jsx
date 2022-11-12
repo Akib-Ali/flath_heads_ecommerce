@@ -1,5 +1,6 @@
 import { Box , Text,Stack,Flex} from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
+import productDetailpage_image from "../Components/Video/productDetailpage_image.webp"
 export const ProductdetailComIIND=()=>{
     return(
         <Box mt="100px">
@@ -7,17 +8,17 @@ export const ProductdetailComIIND=()=>{
            <Text fontWeight={800}> Banana Fiber Sneakers.</Text>
            <Text>First in the world, banana fiber shoes styled with vegan leather for a soft, breathable and smooth feel on your skin.</Text>
 
-           <Stack direction={['column', 'row']} spacing='60px' mt="25px">
+           <Stack direction={['column', 'row']} spacing='100px' mt="25px">
 
            <Box>
            
-           <Image boxSize='500px' src='https://cdn.shopify.com/s/files/1/0258/2485/4100/files/IconA_Banana.jpg?v=1646029900' alt='Dan Abramov' />
+      <Image boxSize='500px' src={productDetailpage_image} alt='Dan Abramov' />
 
            </Box>
 
 
              {/* right box */}
-           <Box>
+           <Box padding="20px">
             
              <Box>
                 <Flex gap="5px">
