@@ -1,16 +1,18 @@
 import { Box ,Stack} from "@chakra-ui/react"
 import { SimpleGrid,Image ,Text,Button} from '@chakra-ui/react'
-
-  import Flathead_customerImages from "../Components/Video/Flathead_customerImages.jpg"
+import Flathead_customerImages from "../Components/Video/Flathead_customerImages.jpg"
+import Innovative_materials from "../Components/Video/Innovative_materials.webp"
+import Smart_design from "../Components/Video/Smart_design.webp"
 import "./whyflatheads.css"
 
 export const WhyFlatheads=()=>{
 
   const logoName = [
- {url: "https://cdn.shopify.com/s/files/1/0258/2485/4100/files/Innovative_materials-01.png?v=1655924148" ,
+ {url : `${Innovative_materials}`,
  title:"Innovative Materials"},
 
-{url: "https://cdn.shopify.com/s/files/1/0258/2485/4100/files/Smart_design-01.png?v=1655924166" , title :"Smart Design"},
+{url: `${Smart_design}`, 
+title :"Smart Design"},
 
 {url: "https://cdn.shopify.com/s/files/1/0258/2485/4100/files/Supreme_comfort-01_copy_c9964ab2-2304-4e64-b714-12352b02c12e.png?v=1655924181" , title :"Supreme Comfort"},
 
