@@ -2,9 +2,8 @@ import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
 import { getMenData } from "../Redux/Products/action"
 import { useEffect } from "react"
-import { Text } from "@chakra-ui/react"
 import { ProductComponent } from "../Components/product"
-import { Grid, GridItem } from '@chakra-ui/react'
+import { Grid, GridItem ,Text} from '@chakra-ui/react'
 import { Stack, HStack, VStack } from '@chakra-ui/react'
 import { SimpleGrid } from '@chakra-ui/react'
 import { MenFilter } from "../Components/MenFilter"
