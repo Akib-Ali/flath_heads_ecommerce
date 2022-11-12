@@ -20,7 +20,10 @@ export const Videofeatures=()=>{
     <video width="820" height="240" controls autoPlay>
     <source src={clip} type="video/mp4"/>
     </video> 
+
+    
      </Box>
+
 
      
 
