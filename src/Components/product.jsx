@@ -10,18 +10,19 @@ import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 export const ProductComponent=(item)=>{
 
       const {id,color,final_price,gender,images,name,original_price,rating,reviews,sizes} = item;
-      const [img,setImg]= useState(images[0])
+      const [img,setImg]= useState(images[1])
 
       const navigate = useNavigate()
 
       const mouseenterimage=()=>{
-        setImg(images[1])
+        setImg(images[0])
     
       }
 
 
       const mouseremoveimage=()=>{
-        setImg(images[0])
+         setImg(images[1])
+           
       }
       
 
