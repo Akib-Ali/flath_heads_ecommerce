@@ -177,6 +177,7 @@ export default function Simple() {
 
     <Circle size='40px' bg='yellow' color='white'>
     <Text  fontSize="2xl" fontWeight={700}>
+      
       {cart ? cart.length : 0}
       </Text>
     </Circle>
@@ -302,7 +303,7 @@ export default function Simple() {
             <DrawerFooter>
 
              <Link to="/checkout">
-            <Button disabled={!isAuthenticated} height='48px' width='400px' border='2px' borderColor='green.500'>
+            <Button  height='48px' width='400px' border='2px' borderColor='green.500'>
              Check out
             </Button>  
             </Link>   

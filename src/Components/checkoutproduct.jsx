@@ -3,6 +3,7 @@ import { Box } from '@chakra-ui/react'
 import { Flex ,Text} from '@chakra-ui/react'
 import { Center, Square, Circle , Grid, GridItem} from '@chakra-ui/react'
 import { SimpleGrid } from '@chakra-ui/react'
+import { json } from 'react-router-dom'
 
 
 export const CheckOutProduct=()=>{
@@ -23,6 +24,7 @@ export const CheckOutProduct=()=>{
        let total_final_price = 0;
        cart.forEach((prod)=>{
         total_final_price+= convertToNumber(prod.final_price) * prod.qty;
+        localStorage.setItem("totalprice",JSON.stringify(total_final_price))
        })
     
     

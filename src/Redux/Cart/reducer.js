@@ -1,9 +1,13 @@
 import { ADD_TO_CART,INCREASE_QTY,DECREASE_QTY,REMOVE_FROM_CART } from "./actionTypes";
 
 const initState={
-    cart:[],
+     cart:[],
 
-}
+    }
+
+
+
+// localStorage.setItem("list",JSON.stringify(cart))
 
 // let's check in the cart if the same product is present
 //if present we will increase quantity
@@ -14,10 +18,11 @@ const cartReducer=(state= initState,action)=>{
     const {type,payload}= action
 
      switch(type){
+        
         case ADD_TO_CART:
         
             //  return {...state,cart: [...state.cart,payload]}
-            const ispresent = state.cart.find((prod)=>{
+              const ispresent = state.cart.find((prod)=>{
                 return prod.id === payload.id && prod.size === payload.size
             })
 
