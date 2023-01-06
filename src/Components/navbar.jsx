@@ -301,7 +301,7 @@ export default function Simple() {
            </Box>
 
             <DrawerFooter>
-
+          
              <Link to="/checkout">
             <Button  height='48px' width='400px' border='2px' borderColor='green.500'>
              Check out

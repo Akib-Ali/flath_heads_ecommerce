@@ -22,16 +22,19 @@ import {
 
 export const Payment=()=>{
 
-    // let getpayment = JSON.parse(localStorage.getItem("totalprice"))
-    const [showPassword, setShowPassword] = useState(false);
+  const [cardinput,SetCardinput] = useState({
+    cardnumber:"",
+    cardholdername:"",
+    cardmonth:"",
+    cardyear:"",
+    cardcvv:""
+  })
 
+  const [carddata, setCarddata] = useState([])
 
-    let getpayment = localStorage.getItem("totalprice")
-    if(getpayment){
-        return JSON.parse(localStorage.getItem("totalprice"))
-
-    }
-
+     let getpayment = JSON.parse(localStorage.getItem("totalprice"))
+    let num =0
+    
     return(
         <Stack direction={['column', 'row']} spacing='35px'>
       <Box >
@@ -58,42 +61,44 @@ export const Payment=()=>{
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
-          <FormControl id="email" isRequired>
-              <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+
+          <form>
+            
+          </form>
+
+          <FormControl id="cardnumber" isRequired>
+              
+              <Input type="number"  placeholder="CARD NUMBER"/>
             </FormControl>
+
+            <FormControl id="cardholder" isRequired>
+          
+              <Input type="text"  placeholder="CARD HOLDER NAME"/>
+            </FormControl>
+            
             <HStack>
               <Box>
-                <FormControl id="firstName" isRequired>
-                  <FormLabel>First Name</FormLabel>
-                  <Input type="text" />
+                <FormControl id="cardmonth" isRequired>
+              
+                  <Input type="number" placeholder="MONTH" />
                 </FormControl>
               </Box>
               <Box>
-                <FormControl id="lastName">
-                  <FormLabel>Last Name</FormLabel>
-                  <Input type="text" />
+                <FormControl id="cardyear">
+              
+                  <Input type="number"  placeholder="YEAR"/>
+                </FormControl>
+              </Box>
+              <Box>
+                <FormControl id="cardcvv" isRequired>
+                  
+                  <Input type="text" placeholder="CVV" />
                 </FormControl>
               </Box>
             </HStack>
 
             
 
-            <FormControl id="password" isRequired>
-              <FormLabel>Password</FormLabel>
-              <InputGroup>
-                <Input type={showPassword ? 'text' : 'password'} />
-                <InputRightElement h={'full'}>
-                  <Button
-                    variant={'ghost'}
-                    onClick={() =>
-                      setShowPassword((showPassword) => !showPassword)
-                    }>
-                    {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                  </Button>
-                </InputRightElement>
-              </InputGroup>
-            </FormControl>
             <Stack spacing={10} pt={2}>
               <Button
                 loadingText="Submitting"
@@ -103,14 +108,13 @@ export const Payment=()=>{
                 _hover={{
                   bg: 'blue.500',
                 }}>
-                Sign up
+                
+               {`CONFIRM AND PAY ${getpayment} `}
+                 
+                
               </Button>
             </Stack>
-            <Stack pt={6}>
-              <Text align={'center'}>
-                Already a user? <Link color={'blue.400'}>Login</Link>
-              </Text>
-            </Stack>
+           
           </Stack>
         </Box>
       </Stack>
