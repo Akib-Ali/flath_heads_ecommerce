@@ -33,7 +33,26 @@ export const Payment=()=>{
   const [carddata, setCarddata] = useState([])
 
      let getpayment = JSON.parse(localStorage.getItem("totalprice"))
-    let num =0
+    
+
+    const handlecardinputvalue=(e)=>{
+
+      const name = e.target.name;
+      const value = e.target.value;
+      SetCardinput({...cardinput, [name] : value})
+      }
+   
+
+
+   const handleSubmit=(e)=>{
+    e.preventDefault()
+   setCarddata({...cardinput,carddata})
+   }
+   console.log(carddata)
+ 
+
+
+
     
     return(
         <Stack direction={['column', 'row']} spacing='20px' width={["95%", "75%"]}  margin={["0px", "auto"]} mt={["100px", "80px"]}
@@ -48,7 +67,7 @@ export const Payment=()=>{
 
       <Flex
       minH={'100vh'}
-      // minW={"20vw"}
+    
       >
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={8} px={3}>
         <Stack >
@@ -69,31 +88,31 @@ export const Payment=()=>{
 
           <FormControl id="cardnumber" isRequired>
               
-              <Input type="number"  placeholder="CARD NUMBER"/>
+              <Input type="number"  placeholder="CARD NUMBER" name="cardnumber" value={cardinput.cardnumber} onChange={handlecardinputvalue}/>
             </FormControl>
 
             <FormControl id="cardholder" isRequired>
           
-              <Input type="text"  placeholder="CARD HOLDER NAME"/>
+              <Input type="text"  placeholder="CARD HOLDER NAME" name="cardholdername" value={cardinput.cardholdername} onChange={handlecardinputvalue}/>
             </FormControl>
             
             <HStack>
               <Box>
                 <FormControl id="cardmonth" isRequired>
               
-                  <Input type="number" placeholder="MONTH" />
+                  <Input type="number" placeholder="MONTH"  name="cardmonth" value={cardinput.cardmonth} onChange={handlecardinputvalue}/>
                 </FormControl>
               </Box>
               <Box>
                 <FormControl id="cardyear">
               
-                  <Input type="number"  placeholder="YEAR"/>
+                  <Input type="number"  placeholder="YEAR" name="cardyear" value={cardinput.cardyear} onChange={handlecardinputvalue}/>
                 </FormControl>
               </Box>
               <Box>
                 <FormControl id="cardcvv" isRequired>
                   
-                  <Input type="text" placeholder="CVV" />
+                  <Input type="text" placeholder="CVV" name="cardcvv" value={cardinput.cardcvv}  onChange={handlecardinputvalue}/>
                 </FormControl>
               </Box>
             </HStack>
@@ -108,7 +127,9 @@ export const Payment=()=>{
                 color={'white'}
                 _hover={{
                   bg: 'blue.500',
-                }}>
+              }}
+              onClick={handleSubmit}
+              >
                 
                {`CONFIRM AND PAY ${getpayment} `}
                  
