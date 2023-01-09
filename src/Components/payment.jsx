@@ -22,132 +22,145 @@ import {
 
 export const Payment=()=>{
 
-  const [cardinput,SetCardinput] = useState({
-    cardnumber:"",
-    cardholdername:"",
-    cardmonth:"",
-    cardyear:"",
-    cardcvv:""
-  })
+  const [showPassword, setShowPassword] = useState(false);
+  const [months, setmonths] = useState("");
+  const [year, setyear] = useState("");
+  const [cvv, setcvv] = useState("")
+  const [cardholder, setcardholder] = useState("")
+  const [cardnumber, setcardnumber] = useState("")
+  const [state, setstate] = useState("")
+  const [pincode, setpincode] = useState("")
 
-  const [carddata, setCarddata] = useState([])
+   let getpayment = JSON.parse(localStorage.getItem("totalprice"))
 
-     let getpayment = JSON.parse(localStorage.getItem("totalprice"))
+
     
 
-    const handlecardinputvalue=(e)=>{
-
-      const name = e.target.name;
-      const value = e.target.value;
-      SetCardinput({...cardinput, [name] : value})
-      }
    
 
-
-   const handleSubmit=(e)=>{
+   function getformdata(e){
+  
     e.preventDefault()
-   setCarddata({...cardinput,carddata})
-   }
-   console.log(carddata)
+    alert("Please Confirm this address")
+    
+  }
+
+
+
+  
  
 
 
 
     
     return(
+      <>
+        
         <Stack direction={['column', 'row']} spacing='20px' width={["95%", "75%"]}  margin={["0px", "auto"]} mt={["100px", "80px"]}
          bg={useColorModeValue('gray.50', 'gray.800')} 
         >
-      <Box mt="100px">
+        <Box mt="100px">
         <img src="https://d28wu8o6itv89t.cloudfront.net/images/Debitcarddetailspng-1577957111341.png"/>
-      </Box>
-
-      <form>
-     <Box>
-
-      <Flex
-      minH={'100vh'}
-    
-      >
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={8} px={3}>
-        <Stack >
-          <Heading fontSize={'2xl'} textAlign={'center'}>
-            Payment Detail
-          </Heading>
-        </Stack>
-        <Box
-          rounded={'lg'}
-          bg={useColorModeValue('white', 'gray.700')}
-          boxShadow={'lg'}
-          p={8}>
-          <Stack spacing={4}>
-
-        
-            
-          
-
-          <FormControl id="cardnumber" isRequired>
-              
-              <Input type="number"  placeholder="CARD NUMBER" name="cardnumber" value={cardinput.cardnumber} onChange={handlecardinputvalue}/>
-            </FormControl>
-
-            <FormControl id="cardholder" isRequired>
-          
-              <Input type="text"  placeholder="CARD HOLDER NAME" name="cardholdername" value={cardinput.cardholdername} onChange={handlecardinputvalue}/>
-            </FormControl>
-            
-            <HStack>
-              <Box>
-                <FormControl id="cardmonth" isRequired>
-              
-                  <Input type="number" placeholder="MONTH"  name="cardmonth" value={cardinput.cardmonth} onChange={handlecardinputvalue}/>
-                </FormControl>
-              </Box>
-              <Box>
-                <FormControl id="cardyear">
-              
-                  <Input type="number"  placeholder="YEAR" name="cardyear" value={cardinput.cardyear} onChange={handlecardinputvalue}/>
-                </FormControl>
-              </Box>
-              <Box>
-                <FormControl id="cardcvv" isRequired>
-                  
-                  <Input type="text" placeholder="CVV" name="cardcvv" value={cardinput.cardcvv}  onChange={handlecardinputvalue}/>
-                </FormControl>
-              </Box>
-            </HStack>
-
-            
-
-            <Stack spacing={10} pt={2}>
-              <Button
-                loadingText="Submitting"
-                size="lg"
-                bg={'blue.400'}
-                color={'white'}
-                _hover={{
-                  bg: 'blue.500',
-              }}
-              onClick={handleSubmit}
-              >
-                
-               {`CONFIRM AND PAY ${getpayment} `}
-                 
-                
-              </Button>
-            </Stack>
-           
-          </Stack>
         </Box>
-      </Stack>
-    </Flex>
 
-       
+        <Flex
+        minH={'100vh'}
+        align={'center'}
+        justify={'center'}
+        bg={useColorModeValue('gray.50', 'gray.800')}>
+        <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+          <Stack align={'center'}>
+            <Heading fontSize={'xl'} textAlign={'center'}>
+              Payment Detail
+            </Heading>
+            
+          </Stack>
 
-      </Box>
+          <Box
+            rounded={'lg'}
+            bg={useColorModeValue('white', 'gray.700')}
+            boxShadow={'lg'}
+            p={8}>
+            <Stack spacing={4}>
+            <form onSubmit={getformdata}>
 
-      </form>
+
+            <FormControl id="cardnumber" isRequired>
+                <FormLabel> Card Number</FormLabel>
+                <Input type="text" onChange={(e) => setcardnumber(e.target.value)} />
+               </FormControl>
+
+
+               <FormControl id="caedholder" isRequired>
+                <FormLabel>Card Holder</FormLabel>
+                <Input type="text"  onChange={(e) => setcardholder(e.target.value)}/>
+              </FormControl>
+
+
+
+
+              <HStack>
+                 <Box>
+                  <FormControl id="months"  isRequired>
+                    <FormLabel>Months</FormLabel>
+                    <Input type="text" onChange={(e)=> setmonths(e.target.value)} />
+                  </FormControl>
+                </Box>
+
+                <Box>
+                  <FormControl id="year" isRequired>
+                    <FormLabel>Year</FormLabel>
+                    <Input type="text"  onChange={(e) => setyear(e.target.value)}/>
+                  </FormControl>
+                </Box>
+
+                <Box>
+                  <FormControl id="cvv" isRequired>
+                    <FormLabel>CVV</FormLabel>
+                    <Input type="text"  onChange={(e) => setcvv(e.target.value)}/>
+                  </FormControl>
+                </Box>
+
+              </HStack>
+
+             
+
+
+           
+
+              <Stack spacing={10} pt={2}>
+               
+               <Button 
+                 type='submit'
+                  loadingText="Submitting"
+                  size="lg"
+                  bg={'blue.400'}
+                  color={'white'}
+                  _hover={{
+                    bg: 'blue.500',
+                  }}>
+
+                  Confirm and Pay {getpayment}
+                  
+                  
+                </Button> 
+
+                
+
+               
+                
+              </Stack>
+              </form>
+              
+            </Stack>
+          </Box>
+        </Stack>
+      </Flex>
+
+
      
+          
     </Stack>
+    </>
     )
 }
