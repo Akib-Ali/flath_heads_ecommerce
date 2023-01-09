@@ -36,21 +36,22 @@ export const Payment=()=>{
     let num =0
     
     return(
-        <Stack direction={['column', 'row']} spacing='35px'>
-      <Box >
+        <Stack direction={['column', 'row']} spacing='20px' width={["95%", "75%"]}  margin={["0px", "auto"]} mt={["100px", "80px"]}
+         bg={useColorModeValue('gray.50', 'gray.800')} 
+        >
+      <Box mt="100px">
         <img src="https://d28wu8o6itv89t.cloudfront.net/images/Debitcarddetailspng-1577957111341.png"/>
       </Box>
 
-
-      <Box>
+      <form>
+     <Box>
 
       <Flex
       minH={'100vh'}
-      align={'center'}
-      justify={'center'}
-      bg={useColorModeValue('gray.50', 'gray.800')}>
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
-        <Stack align={'center'}>
+      // minW={"20vw"}
+      >
+      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={8} px={3}>
+        <Stack >
           <Heading fontSize={'2xl'} textAlign={'center'}>
             Payment Detail
           </Heading>
@@ -62,9 +63,9 @@ export const Payment=()=>{
           p={8}>
           <Stack spacing={4}>
 
-          <form>
+        
             
-          </form>
+          
 
           <FormControl id="cardnumber" isRequired>
               
@@ -123,6 +124,8 @@ export const Payment=()=>{
        
 
       </Box>
+
+      </form>
      
     </Stack>
     )
