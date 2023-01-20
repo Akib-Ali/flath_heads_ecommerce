@@ -1,4 +1,7 @@
-import { json } from "react-router-dom"
+import { json, useNavigate } from "react-router-dom"
+
+
+
 
 import {
     Flex,
@@ -32,6 +35,9 @@ export const Payment=()=>{
   const [pincode, setpincode] = useState("")
 
    let getpayment = JSON.parse(localStorage.getItem("totalprice"))
+   const navigate = useNavigate()
+   
+
 
 
     
@@ -42,6 +48,7 @@ export const Payment=()=>{
   
     e.preventDefault()
     alert("Please Confirm this address")
+    navigate("/paymentsussessful")
     
   }
 
@@ -82,7 +89,7 @@ export const Payment=()=>{
             boxShadow={'lg'}
             p={8}>
             <Stack spacing={4}>
-            <form onSubmit={getformdata}>
+            <form    onSubmit={getformdata}>
 
 
             <FormControl id="cardnumber" isRequired>
@@ -138,7 +145,11 @@ export const Payment=()=>{
                   color={'white'}
                   _hover={{
                     bg: 'blue.500',
-                  }}>
+                  }}
+
+                
+                  
+                  >
 
                   Confirm and Pay {getpayment}
                   

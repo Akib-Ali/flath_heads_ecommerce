@@ -9,6 +9,7 @@ import Simple from '../Components/navbar'
 import LargeWithLogoLeft from './footer'
 import { Checkout } from './checkout'
 import { Payment } from './payment'
+import { PaymentToastSuccessful } from './paymentsuccessfultoast'
 
 export const AllRoutes=()=>{
 
@@ -28,7 +29,7 @@ return(
          <Route path='/collection/women-shop' element={<WomenProduct/>} /> 
          <Route path="/checkout" element={<Checkout/>} />
          <Route path='/payment' element={<Payment/>}/>
-
+       <Route path='/paymentsussessful' element={<PaymentToastSuccessful/>}/>
         
     </Routes>
 

@@ -15,7 +15,7 @@ export function ToastExample() {
           })
         }
       >
-        SHOW SIZE CHART
+        SHOW SIZE CHART 
       </Button>
     )
   }
