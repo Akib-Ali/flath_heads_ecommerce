@@ -2,7 +2,9 @@ import { useToast,Wrap,Button} from '@chakra-ui/react'
 import React from 'react'
 
 export const PaymentToastSuccessful=()=>{
-    const toast = useToast(true)
+
+
+    const toast = useToast()
 
 
 return(

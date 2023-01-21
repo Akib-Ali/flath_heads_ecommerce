@@ -94,7 +94,7 @@ export const Payment=()=>{
 
             <FormControl id="cardnumber" isRequired>
                 <FormLabel> Card Number</FormLabel>
-                <Input type="text" onChange={(e) => setcardnumber(e.target.value)} />
+                <Input type="number" onChange={(e) => setcardnumber(e.target.value)} />
                </FormControl>
 
 
@@ -110,21 +110,21 @@ export const Payment=()=>{
                  <Box>
                   <FormControl id="months"  isRequired>
                     <FormLabel>Months</FormLabel>
-                    <Input type="text" onChange={(e)=> setmonths(e.target.value)} />
+                    <Input type="number" onChange={(e)=> setmonths(e.target.value)} />
                   </FormControl>
                 </Box>
 
                 <Box>
                   <FormControl id="year" isRequired>
                     <FormLabel>Year</FormLabel>
-                    <Input type="text"  onChange={(e) => setyear(e.target.value)}/>
+                    <Input type="number"  onChange={(e) => setyear(e.target.value)}/>
                   </FormControl>
                 </Box>
 
                 <Box>
                   <FormControl id="cvv" isRequired>
                     <FormLabel>CVV</FormLabel>
-                    <Input type="text"  onChange={(e) => setcvv(e.target.value)}/>
+                    <Input type="number"  onChange={(e) => setcvv(e.target.value)}/>
                   </FormControl>
                 </Box>
 
