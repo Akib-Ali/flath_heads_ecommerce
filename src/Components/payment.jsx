@@ -94,13 +94,14 @@ export const Payment=()=>{
 
             <FormControl id="cardnumber" isRequired>
                 <FormLabel> Card Number</FormLabel>
-                <Input type="number" onChange={(e) => setcardnumber(e.target.value)} />
+                <Input type="number" onChange={(e) => setcardnumber(e.target.value)} autoComplete="off"  min={1000000000000000} 
+                max={9999999999999999}/>
                </FormControl>
 
 
                <FormControl id="caedholder" isRequired>
                 <FormLabel>Card Holder</FormLabel>
-                <Input type="text"  onChange={(e) => setcardholder(e.target.value)}/>
+                <Input type="text"  onChange={(e) => setcardholder(e.target.value)} autoComplete="off" minLength={3}/>
               </FormControl>
 
 
@@ -110,21 +111,21 @@ export const Payment=()=>{
                  <Box>
                   <FormControl id="months"  isRequired>
                     <FormLabel>Months</FormLabel>
-                    <Input type="number" onChange={(e)=> setmonths(e.target.value)} />
+                    <Input type="number" onChange={(e)=> setmonths(e.target.value)}  autoComplete="off"  min={1} max={12}/>
                   </FormControl>
                 </Box>
 
                 <Box>
                   <FormControl id="year" isRequired>
                     <FormLabel>Year</FormLabel>
-                    <Input type="number"  onChange={(e) => setyear(e.target.value)}/>
+                    <Input type="number"  onChange={(e) => setyear(e.target.value)} autoComplete="off" min={2023} max={2030}/>
                   </FormControl>
                 </Box>
 
                 <Box>
                   <FormControl id="cvv" isRequired>
                     <FormLabel>CVV</FormLabel>
-                    <Input type="number"  onChange={(e) => setcvv(e.target.value)}/>
+                    <Input type="number"  onChange={(e) => setcvv(e.target.value)} autoComplete="off" min={100} max={999}/>
                   </FormControl>
                 </Box>
 
