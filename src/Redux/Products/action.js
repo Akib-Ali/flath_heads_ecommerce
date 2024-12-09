@@ -28,7 +28,9 @@ const handleSuccess=(payload)=>({
 const getData = (payload) => (dispatch) => {
 
         dispatch(handleLoading())
-         fetch("https://gorgeous-plum-fedora.cyclic.app/products",{
+        //  fetch("https://gorgeous-plum-fedora.cyclic.app/products",{
+            fetch("https://flathheads-clone-backend-server.onrender.com/products",{
+
             params:{
                 ...payload
             }
@@ -69,7 +71,9 @@ const handleCurrentProductSuccess=(payload)=>({
  const getCurrentProductData = (id) => (dispatch) => {
 
         dispatch(handleCurrentProductLoading())
-        fetch(`https://gorgeous-plum-fedora.cyclic.app/products/${id}`)
+        // fetch(`https://gorgeous-plum-fedora.cyclic.app/products/${id}`)
+        fetch(`https://flathheads-clone-backend-server.onrender.com/products/${id}`)
+
         .then((res)=> res.json())
         .then((res)=> dispatch(handleCurrentProductSuccess(res)))                                     //pehle console.log(res)
         .catch(()=> dispatch(handleCurrentProductError()))
@@ -98,7 +102,7 @@ const menhandleSuccess=(payload)=>({
 const getMenData = (payload) => (dispatch) => {
 
     dispatch(menhandleLoading())
-      fetch( "https://gorgeous-plum-fedora.cyclic.app/products?gender=MEN",{
+      fetch( "https://flathheads-clone-backend-server.onrender.com/products?gender=MEN",{
         params:{
             ...payload
         }
@@ -134,7 +138,7 @@ const womenhandleSuccess=(payload)=>({
 const getWomenData = () => (dispatch) => {
 
     dispatch(womenhandleloading())
-    fetch("https://gorgeous-plum-fedora.cyclic.app/products?gender=WOMEN")
+    fetch("https://flathheads-clone-backend-server.onrender.com/products?gender=WOMEN")
     .then((res)=> res.json())
     .then((res)=> dispatch(womenhandleSuccess(res)))                                          //pehle console.log(res)
     .catch(()=> dispatch(womenhandleError()))
