@@ -35,7 +35,8 @@ console.log(allmenproducts)
         <div>
           <Box  ml={["15px", "150px"]} mt="50px">
               <Flex>
-                 <Link to="/">Home  <ChevronRightIcon> </ChevronRightIcon></Link>
+                 <Link to="/">Home This Lorem Ipsum
+                 <ChevronRightIcon> </ChevronRightIcon></Link>
                  <Link to="/collections/all">Collection <ChevronRightIcon> </ChevronRightIcon></Link>
                  <Text opacity={0.5}>Shop Men</Text>
               </Flex>
