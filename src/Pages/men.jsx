@@ -35,7 +35,7 @@ console.log(allmenproducts)
         <div>
           <Box  ml={["15px", "150px"]} mt="50px">
               <Flex>
-                 <Link to="/">Home This Lorem Ipsum   Akib Ali Siddiiqui now try to push
+                 <Link to="/">Home This Lorem Ipsum   Akib Ali Siddiiqui n hi
                  <ChevronRightIcon> </ChevronRightIcon></Link>
                  <Link to="/collections/all">Collection <ChevronRightIcon> </ChevronRightIcon></Link>
                  <Text opacity={0.5}>Shop Men</Text>
